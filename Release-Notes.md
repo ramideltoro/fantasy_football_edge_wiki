@@ -23,3 +23,7 @@ Yahoo client credentials and Fantasy Sports approval were not available. No succ
 ## 2026-09-09 — Write-access investigation
 
 Inspected the owner's signed-in Yahoo developer account. Both existing fantasy applications expose locked read-only permissions. Yahoo's access application explicitly says write access is unavailable, although a lower note still invites exception details. Prepared an exception-request draft and documented required safeguards for a future write-enabled implementation. No existing Yahoo app was modified and no live team changes were attempted. Awaiting the owner's choice of existing versus separate OAuth application before continuing connection setup.
+
+## 2026-09-09 — Separate Yahoo app created
+
+Created confidential-client application `k95gYakw`, named Fantasy Football Edge, after explicit approval of the Developer Terms. Verified the app detail page, production homepage, and callback. No Fantasy Sports permissions have been granted. Credential installation and OAuth verification remain pending; desktop automatic approval review blocked Terminal UI access for secure credential transfer.

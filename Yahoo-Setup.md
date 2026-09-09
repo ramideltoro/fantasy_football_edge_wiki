@@ -53,3 +53,9 @@ The authorization request uses the application's registered permissions rather t
 - [Yahoo OAuth authorization code flow](https://developer.yahoo.com/oauth2/guide/flows_authcode/)
 
 Documentation checked September 9, 2026. Live integration awaits approved credentials and user consent.
+
+## Registered application — September 9, 2026
+
+A separate confidential-client application named **Fantasy Football Edge** was created with the owner's explicit approval of Yahoo's Developer Terms. App ID: `k95gYakw`. Homepage and callback match the production configuration above. Existing applications were not repurposed.
+
+Yahoo issued client credentials, but the application currently shows no Fantasy Sports permissions. API access approval is still required. Credentials have not yet been copied into the central credentials file or installed on the VPS: the desktop's automatic approval review blocked Terminal UI access during the attempted secure transfer. No secret values were printed or committed. The owner can save the new values as `YAHOO_CLIENT_ID` and `YAHOO_CLIENT_SECRET` in their central credentials file so deployment can continue using the authorized server tools.
