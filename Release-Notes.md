@@ -27,3 +27,7 @@ Inspected the owner's signed-in Yahoo developer account. Both existing fantasy a
 ## 2026-09-09 — Separate Yahoo app created
 
 Created confidential-client application `k95gYakw`, named Fantasy Football Edge, after explicit approval of the Developer Terms. Verified the app detail page, production homepage, and callback. No Fantasy Sports permissions have been granted. Credential installation and OAuth verification remain pending; desktop automatic approval review blocked Terminal UI access for secure credential transfer.
+
+## Credentials installed
+
+Installed the owner-provided client credentials without printing values, enforced mode 0600 on the VPS environment file, and recreated the container. Verified `configured:true` from production and navigated the real Connect Yahoo flow to Yahoo's consent screen. Paused at Yahoo's separate OpenID/OAuth terms acceptance; no successful token exchange or league read is claimed.

@@ -59,3 +59,9 @@ Documentation checked September 9, 2026. Live integration awaits approved creden
 A separate confidential-client application named **Fantasy Football Edge** was created with the owner's explicit approval of Yahoo's Developer Terms. App ID: `k95gYakw`. Homepage and callback match the production configuration above. Existing applications were not repurposed.
 
 Yahoo issued client credentials, but the application currently shows no Fantasy Sports permissions. API access approval is still required. Credentials have not yet been copied into the central credentials file or installed on the VPS: the desktop's automatic approval review blocked Terminal UI access during the attempted secure transfer. No secret values were printed or committed. The owner can save the new values as `YAHOO_CLIENT_ID` and `YAHOO_CLIENT_SECRET` in their central credentials file so deployment can continue using the authorized server tools.
+
+## Credentials installed and authorization reached
+
+The owner saved the new credentials in the central credentials file. They were installed in the root-readable VPS environment file and the container was recreated. The public status endpoint now reports `configured:true`. The production Connect Yahoo flow successfully reaches Yahoo's authorization screen for Fantasy Football Edge using the signed-in account.
+
+Yahoo presents a separate required acceptance of its OpenID and OAuth terms before the Agree button can be used. This acceptance and the OAuth callback/token exchange are pending. Reaching this screen does not establish Fantasy API permission.
