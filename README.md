@@ -13,7 +13,7 @@ Fantasy Football Edge brings a Yahoo league's roster, matchups, standings, and a
 
 ## Current status
 
-The first release is deployed to the backend VPS. Yahoo credentials are not configured; a Yahoo Fantasy API-approved application and the user's OAuth authorization are still required. The integration is implemented but has not been verified against a live league. The public demo uses fictional players and scores and is labeled throughout.
+The first release is deployed to the backend VPS. Yahoo credentials are configured and OAuth sign-in succeeded. Live league discovery is blocked by Yahoo’s `additional_authorization_required` response; Fantasy API approval is still required. The public demo uses fictional players and scores and is labeled throughout.
 
 ## Write-access request
 

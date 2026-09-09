@@ -31,3 +31,9 @@ Created confidential-client application `k95gYakw`, named Fantasy Football Edge,
 ## Credentials installed
 
 Installed the owner-provided client credentials without printing values, enforced mode 0600 on the VPS environment file, and recreated the container. Verified `configured:true` from production and navigated the real Connect Yahoo flow to Yahoo's consent screen. Paused at Yahoo's separate OpenID/OAuth terms acceptance; no successful token exchange or league read is claimed.
+
+## OAuth successful; Fantasy permission required
+
+Accepted the separately approved OpenID/OAuth terms and completed the production callback successfully. Encrypted token persistence is working. A live league-discovery request returned HTTP 401 with `additional_authorization_required` while the access token was unexpired. This confirms missing Fantasy authorization rather than an expired login. No league data was returned.
+
+Fixed the portal to distinguish this permission response from token expiration and hide the redundant connect action for signed-in users. Eight tests and syntax checks passed. Fantasy API approval remains the next external dependency; writes and automation are not enabled.

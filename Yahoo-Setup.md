@@ -65,3 +65,7 @@ Yahoo issued client credentials, but the application currently shows no Fantasy 
 The owner saved the new credentials in the central credentials file. They were installed in the root-readable VPS environment file and the container was recreated. The public status endpoint now reports `configured:true`. The production Connect Yahoo flow successfully reaches Yahoo's authorization screen for Fantasy Football Edge using the signed-in account.
 
 Yahoo presents a separate required acceptance of its OpenID and OAuth terms before the Agree button can be used. This acceptance and the OAuth callback/token exchange are pending. Reaching this screen does not establish Fantasy API permission.
+
+## Live OAuth verification
+
+OAuth consent and token exchange succeeded. The current blocker is a live Fantasy API `additional_authorization_required` response (HTTP 401 with an unexpired token). Submit the Fantasy Sports API access application for the new app; after approval, reauthorize if Yahoo requires it. Reconnecting repeatedly before permission is granted will not resolve this error.
