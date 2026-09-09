@@ -19,3 +19,7 @@ Published code to `ramideltoro/fantasy_football_edge` and documentation to `rami
 ## Pending live verification
 
 Yahoo client credentials and Fantasy Sports approval were not available. No successful Yahoo sign-in, live league discovery, live roster retrieval, or token refresh against Yahoo has been claimed. These must be verified once the owner provides approved application credentials and completes OAuth consent. The tests use synthetic XML, not a captured live league fixture. There was no browser automation or screenshot QA in this release.
+
+## 2026-09-09 — Write-access investigation
+
+Inspected the owner's signed-in Yahoo developer account. Both existing fantasy applications expose locked read-only permissions. Yahoo's access application explicitly says write access is unavailable, although a lower note still invites exception details. Prepared an exception-request draft and documented required safeguards for a future write-enabled implementation. No existing Yahoo app was modified and no live team changes were attempted. Awaiting the owner's choice of existing versus separate OAuth application before continuing connection setup.
