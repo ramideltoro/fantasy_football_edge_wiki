@@ -37,3 +37,7 @@ Installed the owner-provided client credentials without printing values, enforce
 Accepted the separately approved OpenID/OAuth terms and completed the production callback successfully. Encrypted token persistence is working. A live league-discovery request returned HTTP 401 with `additional_authorization_required` while the access token was unexpired. This confirms missing Fantasy authorization rather than an expired login. No league data was returned.
 
 Fixed the portal to distinguish this permission response from token expiration and hide the redundant connect action for signed-in users. Eight tests and syntax checks passed. Fantasy API approval remains the next external dependency; writes and automation are not enabled.
+
+## September 12, 2026 — Legacy client verification
+
+Recovered fantasy-2 credentials securely, retained its existing callback and added the portal callback, and completed OAuth against that app. Live league discovery returned HTTP 403 with an unexpired token: application not authorized. Original production client restored after the unsuccessful test. No league data was retrieved or modified. See Yahoo-Setup.md for storage and configuration details.

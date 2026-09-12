@@ -69,3 +69,9 @@ Yahoo presents a separate required acceptance of its OpenID and OAuth terms befo
 ## Live OAuth verification
 
 OAuth consent and token exchange succeeded. The current blocker is a live Fantasy API `additional_authorization_required` response (HTTP 401 with an unexpired token). Submit the Fantasy Sports API access application for the new app; after approval, reauthorize if Yahoo requires it. Reconnecting repeatedly before permission is granted will not resolve this error.
+
+## Older app tested — September 12, 2026
+
+Recovered the existing `fantasy-2` client ID and secret from the signed-in developer page and saved them under `YAHOO_LEGACY_CLIENT_ID` / `YAHOO_LEGACY_CLIENT_SECRET` in the owner's central credential store via a temporary loopback-only form. No credential values were printed. Added the production callback while retaining the original callback. Temporarily configured the portal for that client and used a separate `/app/data/legacy` session directory to avoid mixing app tokens.
+
+OAuth sign-in succeeded. A real league discovery request with an unexpired token returned HTTP 403: “This application is not authorized to perform this action.” The listed Fantasy Sports - Read checkbox therefore does not establish working API access. Restored the production environment to the original Fantasy Football Edge client and `/app/data` store after testing. The added callback remains registered on fantasy-2. Its isolated session files remain encrypted in the persistent volume. The public-client `fantasy-football2` has not been tested against league data.
