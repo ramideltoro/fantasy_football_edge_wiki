@@ -32,3 +32,5 @@ npm run login:yahoo
 Back up the dedicated PostgreSQL volume with `pg_dump`, encrypt or keep backups private, and verify restoration. Never use `docker compose down -v` during ordinary deployment. Snapshot history grows with imports; establish a retention/export policy before multi-season scale. Server sessions expire automatically. The public UI only receives bounded historical results.
 
 The Google owner login was verified end-to-end after registering the fantasy callback on the existing Google OAuth client, preserving its other redirect URLs. Public JSON was checked independently without the owner cookie.
+
+The importer retries a failed page load once and bounds a run to approximately ten minutes. Local status records the page group being read, while failed uploads preserve the last good server snapshot. Image/media/font requests are skipped in the dedicated headless importer to reduce unnecessary loading. A private PostgreSQL custom-format backup was created after cutover and its archive catalog was verified under `/var/backups/fantasy-football-edge`.
