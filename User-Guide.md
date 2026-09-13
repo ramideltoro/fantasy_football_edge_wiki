@@ -23,3 +23,5 @@ NFL roles use ESPN depth-chart order, matched by NFL team and normalized full na
 ## Dedicated waiver list
 
 Open **Waiver list** in the main navigation. Its first column is real **NFL starter / backup** status, followed by player, position, NFL team, availability, injury status, bye week, projected points, and rostered percentage. Click a player name for details and history. The list includes free agents and players on waivers, excludes rostered trade candidates, supports name/position/team search and availability filters, and paginates 50 rows ordered by projection. Missing depth-chart matches remain Unknown.
+
+**My roster** also shows NFL starter/backup as its first column, linked to ESPN depth charts. This is the player's real NFL depth role, separate from your fantasy Slot and Yahoo Started percentage. Missing matches show Unknown; defenses show Team defense.
