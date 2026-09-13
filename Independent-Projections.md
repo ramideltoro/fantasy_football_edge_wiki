@@ -1,0 +1,13 @@
+# Independent Qwen forecasts and expanded position imports
+
+Yahoo scope: retain two available W/R/T pages, add exactly one available page each for QB, K and DEF, all sorted by current-week projected points. All four coverage markers must validate before a snapshot is accepted. Sequential page delay and single ZIP upload are unchanged. Live import verified 50 W/R/T, 25 QB, 25 K and 19 DEF rows.
+
+Research adds nflverse weekly team statistics to the existing player stats and snap counts. Historical raw kicking/defense/offensive fields, league scoring, opponent, role and recent reporting are provided to Qwen in eight-player batches. Yahoo projected points are excluded from those requests. News includes publisher RSS feeds, player-specific Google News searches and public r/fantasyfootball Atom RSS. Reddit is unverified opinion. This uses Google News search, not a general Google Search API. Unavailable feeds are recorded rather than bypassed.
+
+projection_jobs persists hash-deduplicated input, status, result and generation time. Current snapshots supersede old pending work; QB/K/DEF jobs are prioritized. The existing Mac AI worker processes these jobs independently of Yahoo browsing. The server validates complete player IDs, finite bounded forecasts and coherent low/high ranges, and refuses numerical estimates without historical or substantive directly matched evidence. Ranges are illustrative, not calibrated intervals. This validation cannot prove that Qwen's predictions or reasoning are accurate.
+
+Current player views share the same active projection through applyProjections: Qwen when available and same NFL team, otherwise explicitly labeled Yahoo fallback. Yahoo is preserved as providerProjected. Qwen estimates expire from active display after four hours. Player details show reason, range, timestamp and research links. The roster, waiver list, player lab, optimizer and AI comparison use active values; historical Yahoo charts and Yahoo league matchup totals retain explicit Yahoo labels. Position suggestions show three eligible imported QB/K/DEF options. No transaction is performed.
+
+/api/projections exposes batch status and prospective accuracy: earliest estimate completed before known kickoff versus completed imported actual points. Errors are compared against the same imported Yahoo baseline. Missing actual outcomes remain unscored. No claim of superior accuracy is made.
+
+Forecasts with insufficient evidence remain null, so rookies or missing-history players can retain Yahoo fallback. Exact league scoring, recent data and robust forecast evaluation matter more than the volume of commentary. This is an experimental Qwen forecaster, not a demonstrated best-in-class model.
