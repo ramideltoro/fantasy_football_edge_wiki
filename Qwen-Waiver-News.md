@@ -11,3 +11,5 @@ Research version 4 rebuilds the latest intelligence record on rollout; future sn
 Validation: 23 automated tests pass, including invalid waiver/citation rejection and normalized name matching; production build passes. Four direct outlet feeds were verified live on rollout. Browser verification checks the briefing above the waiver table.
 
 Inference optimization: citation URLs remain server-side and are omitted from Qwen input; per-article input excerpts are capped at 300 characters. The initial larger news request timed out, prompting this reduction.
+
+Live verification: the optimized Qwen run completed successfully on the current snapshot and returned five ranked waiver candidates, each with two reporting citations.
