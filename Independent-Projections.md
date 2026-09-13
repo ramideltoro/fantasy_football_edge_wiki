@@ -11,3 +11,5 @@ Current player views share the same active projection through applyProjections: 
 /api/projections exposes batch status and prospective accuracy: earliest estimate completed before known kickoff versus completed imported actual points. Errors are compared against the same imported Yahoo baseline. Missing actual outcomes remain unscored. No claim of superior accuracy is made.
 
 Forecasts with insufficient evidence remain null, so rookies or missing-history players can retain Yahoo fallback. Exact league scoring, recent data and robust forecast evaluation matter more than the volume of commentary. This is an experimental Qwen forecaster, not a demonstrated best-in-class model.
+
+Refresh deduplication includes a four-hour window so unchanged evidence can receive a new forecast without overwriting earlier prospective records. Source changes can trigger earlier refreshes. The initial rollout processes the full pool progressively in the background; it does not wait for all batches before making completed estimates visible.
