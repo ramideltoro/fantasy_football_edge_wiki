@@ -18,3 +18,7 @@ Verified: production TypeScript/build and 11 core tests pass. The GitHub Validat
 Limitations: historical charts require repeat imports; forecast accuracy requires completed outcomes after a stored pregame forecast. Player pool coverage follows imported pages. A current-week trade/waiver scenario and gated empirical forecast calibration are implemented. Independent multi-source projection blending, full historical Yahoo parity and autonomous team writes are not claimed by this release.
 
 A private Git bundle preserves the original code before the authorized repository rebuild. Never commit that bundle or captured private league pages.
+
+## Import verification follow-up — 2026-09-12
+
+The full manual unattended import remains the last successful dataset (2026-09-13 00:06 UTC). Subsequent launch-agent runs reached player pagination but Yahoo returned HTTP 999 with an empty response. Scheduled refresh is installed but a complete scheduled refresh has not yet been verified. Added explicit access-block detection and a one-hour minimum cooldown rather than repeated requests. The portal continues to serve 17 roster players and 1,195 pool players from the last complete snapshot. TypeScript validation passes for this follow-up.

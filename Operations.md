@@ -34,3 +34,5 @@ Back up the dedicated PostgreSQL volume with `pg_dump`, encrypt or keep backups 
 The Google owner login was verified end-to-end after registering the fantasy callback on the existing Google OAuth client, preserving its other redirect URLs. Public JSON was checked independently without the owner cookie.
 
 The importer retries a failed page load once and bounds a run to approximately ten minutes. Local status records the page group being read, while failed uploads preserve the last good server snapshot. Image/media/font requests are skipped in the dedicated headless importer to reduce unnecessary loading. A private PostgreSQL custom-format backup was created after cutover and its archive catalog was verified under `/var/backups/fantasy-football-edge`.
+
+Yahoo HTTP 429 or 999 stops a run immediately and sets a private `retry-after` timestamp. The scheduler waits at least one hour, or longer when Yahoo specifies a later Retry-After. Even `--force` respects this cooldown; it does not bypass an access block. Player filter readiness checks attachment because Yahoo can hide its native select control. Last complete data remains available throughout failures.
