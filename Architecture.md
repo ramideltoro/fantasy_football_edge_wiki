@@ -35,3 +35,7 @@ The last valid snapshot remains available on failed imports. Latest history is s
 ## Frontend
 
 React, TypeScript and Recharts; charcoal backgrounds, amber highlights, responsive tables, player drawers, reduced-motion support. Charts represent actual stored values; no invented time series or retrospective model performance is shown.
+
+Owner-only, same-origin `POST /api/import/request` writes a singleton durable refresh request in PostgreSQL. Authenticated worker `GET /api/import/request` reports whether work is pending; owner sessions can also read it. Successful snapshot ingestion fulfills requests at or before the snapshot capture timestamp in the same transaction. Import failures and cooldowns preserve pending requests. No inbound connection to the Mac is required. Scheduled checks now run every 60 seconds, retaining import cadence throttling for non-requested work.
+
+`GET /api/depth` serves cached public ESPN NFL depth charts. Four concurrent fetch workers cover the 32 teams, using bounded timeouts. Missing teams/athletes remain unknown. This enrichment is independent of the snapshot provider and does not put Yahoo credentials on the VPS.

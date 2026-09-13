@@ -17,7 +17,7 @@ Deployment procedure: archive the previous source and database, build and test t
 
 ## Mac schedule
 
-`npm run install:importer` writes `~/Library/LaunchAgents/com.ramideltoro.fantasy-football-edge.import.plist`. It starts at login and checks every 900 seconds. The installed application lives in `~/Library/Application Support/FantasyFootballEdge/app`, independently of the development checkout. Normal runs are throttled to hourly. Imported kickoff windows and conservative Sunday/Saturday/evening football windows shorten the interval to 15 minutes. The Mac must be awake, online and logged into the user session.
+`npm run install:importer` writes `~/Library/LaunchAgents/com.ramideltoro.fantasy-football-edge.import.plist`. It starts at login and checks every 60 seconds. The installed application lives in `~/Library/Application Support/FantasyFootballEdge/app`, independently of the development checkout. Normal runs are throttled to hourly. Imported kickoff windows and conservative Sunday/Saturday/evening football windows shorten the interval to 15 minutes. The Mac must be awake, online and logged into the user session.
 
 A PID lock prevents overlapping runs and recovers stale process locks. A failed run does not replace the last snapshot. Local status and logs are in the private importer directory. No automatic team changes occur.
 

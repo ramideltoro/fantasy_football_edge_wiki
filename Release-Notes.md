@@ -22,3 +22,7 @@ A private Git bundle preserves the original code before the authorized repositor
 ## Import verification follow-up — 2026-09-12
 
 The full manual unattended import remains the last successful dataset (2026-09-13 00:06 UTC). Subsequent launch-agent runs reached player pagination but Yahoo returned HTTP 999 with an empty response. Scheduled refresh is installed but a complete scheduled refresh has not yet been verified. Added explicit access-block detection and a one-hour minimum cooldown rather than repeated requests. The portal continues to serve 17 roster players and 1,195 pool players from the last complete snapshot. TypeScript validation passes for this follow-up.
+
+## On-demand imports and NFL depth roles — 2026-09-12
+
+Deployed the owner refresh queue and minute-based Mac polling, plus a searchable/paginated full trade and waiver candidate list with NFL position and ESPN starter/backup depth role. Verified a real owner button click queues the request, worker-token retrieval sees it, and unauthenticated POST/GET are rejected. Verified the live Michael Penix Jr. row shows QB / Atlanta / Backup (2). All 12 tests and production build pass. The queued refresh respects the existing Yahoo HTTP 999 cooldown; a new full Yahoo import is not claimed.
