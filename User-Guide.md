@@ -25,3 +25,7 @@ NFL roles use ESPN depth-chart order, matched by NFL team and normalized full na
 Open **Waiver list** in the main navigation. Its first column is real **NFL starter / backup** status, followed by player, position, NFL team, availability, injury status, bye week, projected points, and rostered percentage. Click a player name for details and history. The list includes free agents and players on waivers, excludes rostered trade candidates, supports name/position/team search and availability filters, and paginates 50 rows ordered by projection. Missing depth-chart matches remain Unknown.
 
 **My roster** also shows NFL starter/backup as its first column, linked to ESPN depth charts. This is the player's real NFL depth role, separate from your fantasy Slot and Yahoo Started percentage. Missing matches show Unknown; defenses show Team defense.
+
+## Yahoo refresh operations
+
+The **Yahoo refresh** navigation section is owner-only and combines the on-demand refresh button with request state, worker last check-in, reported state, cooldown deadline, and the latest 150 timestamped operation logs. Logs refresh every five seconds while the section is open. New imports report each roster/page group and player page, upload, and success/failure. An old check-in does not establish that the Mac is online now. Yahoo cooldowns remain enforced and queued requests survive failures.

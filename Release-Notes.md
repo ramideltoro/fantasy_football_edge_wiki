@@ -30,3 +30,5 @@ Deployed the owner refresh queue and minute-based Mac polling, plus a searchable
 Added a dedicated **Waiver list** navigation section with NFL starter/backup as the first column, searchable available-player details, availability filtering, pagination and player-detail links. Production build validated.
 
 Added the NFL starter/backup column to My roster using ESPN depth charts. Production build passed.
+
+Added the Yahoo refresh operations section, live five-second log polling, worker heartbeat/cooldown state, queued-request status and page-by-page importer progress. Production build validated.
