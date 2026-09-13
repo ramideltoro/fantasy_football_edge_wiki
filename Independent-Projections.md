@@ -13,3 +13,5 @@ Current player views share the same active projection through applyProjections: 
 Forecasts with insufficient evidence remain null, so rookies or missing-history players can retain Yahoo fallback. Exact league scoring, recent data and robust forecast evaluation matter more than the volume of commentary. This is an experimental Qwen forecaster, not a demonstrated best-in-class model.
 
 Refresh deduplication includes a four-hour window so unchanged evidence can receive a new forecast without overwriting earlier prospective records. Source changes can trigger earlier refreshes. The initial rollout processes the full pool progressively in the background; it does not wait for all batches before making completed estimates visible.
+
+Live output review found unsupported matchup prose in Qwen's reasoning (including an incorrect expansion of an NFL team abbreviation). Player-facing explanations therefore use canonical input coverage, NFL role and opponent identifiers rather than repeating unverified model prose. Numerical estimates remain experimental Qwen outputs; the source-coverage wording does not assert that more sources imply better accuracy.
