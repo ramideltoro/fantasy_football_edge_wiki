@@ -44,3 +44,7 @@ Interrupted imports now checkpoint successfully parsed pages locally (private `c
 ## ZIP snapshot uploads
 
 The Mac worker now sends one `application/zip` request per completed refresh to `/api/import/snapshot`. The archive contains exactly `snapshot.json` with the entire roster, pool, league sections and coverage. Lightweight heartbeat/progress messages remain separate to power live operation logs. The backend reads the archive in memory, rejects extra entries, encryption, malformed JSON and packages exceeding 8 MiB compressed or expanded, then applies the normal schema/completeness checks and atomic transaction. Legacy JSON uploads remain accepted for compatible adapters. The importer remains paused after the network investigation; this deployment does not resume Yahoo browsing.
+
+## Reduced Yahoo browsing scope
+
+At the owner's request, imports now collect only the first two pages (up to 50 players) of **available W/R/T** players, sorted by current-week projected points descending. The separate unfiltered player-list page and full O/K/DEF pagination are removed. Roster and league sections still refresh. Five-second minimum navigation spacing is retained, exceeding the requested one-second delay to avoid increasing traffic. Coverage `players-WRT-top2` means this bounded scope completed, not the entire Yahoo player pool. The ZIP replaces the previous pool rather than presenting old unrefreshed players as current. Checkpoint identity changes with this scope.

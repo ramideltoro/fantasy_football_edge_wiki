@@ -29,3 +29,5 @@ Open **Waiver list** in the main navigation. Its first column is real **NFL star
 ## Yahoo refresh operations
 
 The **Yahoo refresh** navigation section is owner-only and combines the on-demand refresh button with request state, worker last check-in, reported state, cooldown deadline, and the latest 150 timestamped operation logs. Logs refresh every five seconds while the section is open. New imports report each roster/page group and player page, upload, and success/failure. An old check-in does not establish that the Mac is online now. Yahoo cooldowns remain enforced and queued requests survive failures.
+
+The waiver list is now intentionally limited to the first two Yahoo pages of available W/R/T players sorted by projected points (up to 50). QB, kicker, defense and deeper waiver candidates are not imported into this shortlist. Your own full roster remains available separately.
