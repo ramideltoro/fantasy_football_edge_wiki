@@ -1,64 +1,34 @@
-# Deployment and operations
+# Operations
 
-## Production inventory
+## Backend
 
-| Item | Value |
-| --- | --- |
-| Public URL | https://fantasy.ramideltoro.com |
-| Backend VPS | `65.75.201.18` |
-| Checkout/source directory | `/opt/fantasy-football-edge` |
-| Runtime | Docker Compose, Node.js 24 Alpine |
-| Container | `fantasy-football-edge` |
-| Host listener | `127.0.0.1:3100` |
-| Environment file | `/etc/fantasy-football-edge.env`, mode 0600 |
-| Persistent volume | `fantasy-football-edge_fantasy-edge-data` |
-| Proxy | `/etc/caddy/Caddyfile` |
-| DNS | Cloudflare proxied A record `fantasy.ramideltoro.com` → `65.75.201.18` |
-| Origin certificate | Caddy-managed Let's Encrypt certificate |
+Backend VPS: `65.75.201.18`. Replacement checkout: `/opt/fantasy-football-edge-v2`. Docker Compose project: `fantasy-edge-v2`. Web: loopback `3102`; PostgreSQL: internal Docker network only. Caddy now serves `fantasy.ramideltoro.com` over HTTPS with upstream 3102. Original deployment at `/opt/fantasy-football-edge` and loopback `3100` is retained for rollback. Caddy backup: `/etc/caddy/Caddyfile.before-edge-v2`.
 
-Deployment added a dedicated Caddy site block. The preexisting configuration was backed up to `/etc/caddy/Caddyfile.before-fantasy-edge`; the candidate was validated before reload. Existing backend and Raspberry portal responses were checked after deployment.
-
-## Updating code
-
-The initial production directory was transferred from the source checkout and contains no Git credentials. To update, clone/pull the GitHub repository on a trusted workstation, run checks, transfer a clean archive, then rebuild:
+Store secrets in root-readable `.env`; never log `docker compose config`, environment values or bearer tokens. Environment variables: `DB_PASSWORD`, `IMPORT_TOKEN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`. The Google redirect URI must be exactly `https://fantasy.ramideltoro.com/auth/google/callback`.
 
 ```sh
-npm ci
-npm run check
-npm test
-git archive --format=tar.gz -o /tmp/ffe-release.tar.gz HEAD
-scp /tmp/ffe-release.tar.gz 65.75.201.18:/tmp/ffe-release.tar.gz
+cd /opt/fantasy-football-edge-v2
+docker compose -p fantasy-edge-v2 up -d --build
+curl -fsS http://127.0.0.1:3102/healthz
+docker compose -p fantasy-edge-v2 logs --tail=50 web
 ```
 
-On the VPS, use authorized sudo access:
+Deployment procedure: archive the previous source and database, build and test the replacement on 3102, validate authenticated imports and privacy, then update only the fantasy site's Caddy upstream and validate/reload Caddy. Do not modify other VPS services. Rollback changes the fantasy upstream back to 3100 and starts the original container if needed; preserve the v2 database for investigation.
+
+## Mac schedule
+
+`npm run install:importer` writes `~/Library/LaunchAgents/com.ramideltoro.fantasy-football-edge.import.plist`. It starts at login and checks every 900 seconds. The installed application lives in `~/Library/Application Support/FantasyFootballEdge/app`, independently of the development checkout. Normal runs are throttled to hourly. Imported kickoff windows and conservative Sunday/Saturday/evening football windows shorten the interval to 15 minutes. The Mac must be awake, online and logged into the user session.
+
+A PID lock prevents overlapping runs and recovers stale process locks. A failed run does not replace the last snapshot. Local status and logs are in the private importer directory. No automatic team changes occur.
 
 ```sh
-sudo tar -xzf /tmp/ffe-release.tar.gz -C /opt/fantasy-football-edge
-cd /opt/fantasy-football-edge
-sudo docker compose up -d --build
-sudo docker inspect --format '{{.State.Status}} {{.State.Health.Status}}' fantasy-football-edge
-curl -fsS https://fantasy.ramideltoro.com/healthz
+launchctl print gui/$(id -u)/com.ramideltoro.fantasy-football-edge.import
+npm run import -- --force
+npm run login:yahoo
 ```
 
-Archive-based updates do not remove deleted source files. Remove obsolete files deliberately during upgrades. Do not overwrite the environment file or delete the data volume. Updating source does not require changing Caddy unless routing changes. For environment changes, `docker compose up -d --force-recreate` is required.
+## Backups and retention
 
-## Checks and logs
+Back up the dedicated PostgreSQL volume with `pg_dump`, encrypt or keep backups private, and verify restoration. Never use `docker compose down -v` during ordinary deployment. Snapshot history grows with imports; establish a retention/export policy before multi-season scale. Server sessions expire automatically. The public UI only receives bounded historical results.
 
-```sh
-sudo docker logs --tail 100 fantasy-football-edge
-sudo docker inspect --format '{{.State.Health.Status}}' fantasy-football-edge
-curl -fsS http://127.0.0.1:3100/healthz
-curl -fsS https://fantasy.ramideltoro.com/api/status
-```
-
-Health `ok` means the app is running, not that Yahoo access is approved. A fresh browser currently receives `configured:false, connected:false`. After credentials are installed, `configured` should become true. Authenticated behavior must then be verified with the account owner.
-
-## Backup and recovery
-
-Back up `/etc/fantasy-football-edge.env`, the Caddy configuration, and the named Docker volume together into a private encrypted backup destination. Stop the container for a consistent session snapshot. The volume contains both `encryption.key` and `sessions.enc`; restoring one without its matching other file will prevent decryption. Treat the complete backup as credentials. No scheduled backup was introduced in this release.
-
-To roll back code, transfer an archive of a known previous Git commit and rebuild. Preserve the volume and environment. To remove only the new proxy route, remove its dedicated block, validate the candidate, then reload Caddy; do not restore the old full file blindly if other services have since changed. Avoid `docker compose down -v`, which destroys session state. The app can restart with a fresh empty data volume, but all users must reconnect to Yahoo.
-
-## Secrets
-
-The owner's credentials remain in their designated central credentials file. Only Yahoo app credentials belong in this application's root-readable production environment file. No GitHub, Cloudflare, sudo, or unrelated service tokens are stored in the app, image, repositories, or documentation.
+The Google owner login was verified end-to-end after registering the fantasy callback on the existing Google OAuth client, preserving its other redirect URLs. Public JSON was checked independently without the owner cookie.

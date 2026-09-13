@@ -1,21 +1,13 @@
 # User guide
 
-## Getting started
+- **Overview:** current starter totals, projected lineup opportunity, injury/bye watch and projected-versus-actual chart.
+- **My roster:** searchable roster with slots, injury flags, kickoff locks, projections, actuals, roster/start percentages and player details.
+- **Player lab:** imported player pool, popularity-versus-projection chart, up to three side-by-side player comparisons, per-player projection/popularity history, and a prospective forecast scorecard. Player tables are paginated in groups of 50.
+- **Recommendations:** the highest-projected eligible unlocked lineup plus a shortlist of imported free agents/waivers. A trade/waiver scenario compares an outgoing and incoming player’s current-week points and flags locks, positions and availability. Changes remain advice; apply decisions yourself in Yahoo.
+- **League:** anonymized public matchup and standings; Google owner sign-in reveals imported league page detail, rules, schedule, transactions and draft history.
+- **News & trends:** attributed ESPN/Yahoo headlines linking to original articles. Player details show historical imported metrics when repeat samples exist.
+- **Import health:** last capture time, freshness, history samples and owner-only import events.
 
-Open https://fantasy.ramideltoro.com. **Explore the demo** opens a fictional example league. **Connect your Yahoo league** starts Yahoo sign-in once the application is configured. The portal never asks for your Yahoo password.
+A roster refresh is a snapshot, not a live feed. Check freshness before acting. A dash means unavailable, not zero. Yahoo projections and win probabilities are provider estimates. Current points, original projection and live projection have different meanings.
 
-## Dashboard
-
-- **Overview:** league rank, record, roster count, status alerts, your weekly matchup, starting lineup, and league standings.
-- **My roster:** players, selected positions, NFL team, Yahoo status flag, and bye week. Flags are displayed as Yahoo returns them; verify the latest news before kickoff.
-- **Matchups:** the league's current scoreboard, actual scores, and projections when supplied by Yahoo.
-- **Available players:** up to 25 available players ordered by Yahoo overall rank. Search filters that returned list by name, position, or NFL team. This is not a league-wide player search.
-- **League standings:** team ranks and win/loss/tie records.
-
-Use the league selector to switch between current-season NFL leagues. **Refresh** fetches new data; this release does not stream or automatically poll scores. **Manage on Yahoo** opens your Yahoo team when Yahoo supplies its URL. Lineup changes, waiver claims, and trades are performed there.
-
-**Disconnect Yahoo** deletes this browser session's stored tokens and cookie. Revoke the application's access in Yahoo account settings if you also want Yahoo to invalidate the authorization.
-
-## Limitations
-
-No live league has been connected yet. Yahoo responses can vary by league type and season stage. Missing scores or projections display a dash. There is no lineup optimizer, trade scoring, automated waiver action, or guaranteed real-time injury feed. The demo uses fictional player names and sample results and should not inform real football decisions.
+The optimizer respects roster slots, flex eligibility, byes, unavailable statuses and game locks. It does not incorporate an independent injury model, trade acceptance probability or a guarantee of winning. Compare player context and fresh news before executing a move.

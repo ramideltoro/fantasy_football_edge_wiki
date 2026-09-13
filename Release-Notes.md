@@ -1,43 +1,20 @@
 # Release notes
 
-## 2026-09-09 — Initial portal
+## V2 rebuild — 2026-09-12
 
-Implemented the Fantasy Football Edge brand and responsive green/lime dashboard, with landing page, explicitly fictional demo, roster view, matchup view, available-player filtering, and standings. Implemented Yahoo authorization code flow, refresh tokens, encrypted session persistence, current-season league discovery, owned-team roster lookup, and normalization of Yahoo XML responses. Added production Docker deployment with a persistent volume, limited container permissions/resources, Cloudflare DNS, and Caddy HTTPS routing.
+Implemented:
 
-Published code to `ramideltoro/fantasy_football_edge` and documentation to `ramideltoro/fantasy_football_edge_wiki`.
+- Amber responsive React dashboard and player charts.
+- Versioned provider-independent schema and local Yahoo browser adapter.
+- Dedicated PostgreSQL snapshot, forecast, session and import-event storage.
+- Projection-aware parsing, injury/bye exclusions, flex optimization and game locks.
+- Public allowlist and anonymized league summaries; Google owner authorization.
+- RSS headline ingestion from ESPN and Yahoo Sports.
+- Mac launch-agent installer with overlapping-run protection and adaptive import cadence.
+- Docker deployment isolated from existing VPS services.
 
-## Validation
+Verified: production TypeScript/build and 11 core tests pass. The GitHub Validate workflow passed for the fresh main commit. Unattended Yahoo import succeeded with 17 roster players, 1,195 distinct pool players and 59 total pages. The replacement is live on HTTPS through Caddy port 3102. End-to-end API checks passed for health, upload authorization, schema validation, duplicate idempotency, public privacy and OAuth state rejection. Google owner login succeeded and exposed private league sections only to the owner. Desktop/mobile layout, player search and historical charts were inspected. The macOS launch agent is installed with a 900-second check interval.
 
-- JavaScript syntax checks passed for server and frontend.
-- Eight automated tests passed: XML singleton/multiple/empty handling, zero-score preservation, optional-field normalization, public connection status, rejection of unauthenticated league reads, forged OAuth callback rejection, cross-origin disconnect rejection, and unconfigured OAuth setup/security headers.
-- Dependency audit reported zero known vulnerabilities at installation time.
-- Production Docker container reported `running healthy`.
-- Caddy candidate configuration validated and the Let's Encrypt origin certificate was issued.
-- Public root and health endpoint returned HTTP 200; public status correctly reported credentials unconfigured and browser disconnected.
-- Existing backend health and Raspberry portal returned HTTP 200 after the proxy update.
+Limitations: historical charts require repeat imports; forecast accuracy requires completed outcomes after a stored pregame forecast. Player pool coverage follows imported pages. A current-week trade/waiver scenario and gated empirical forecast calibration are implemented. Independent multi-source projection blending, full historical Yahoo parity and autonomous team writes are not claimed by this release.
 
-## Pending live verification
-
-Yahoo client credentials and Fantasy Sports approval were not available. No successful Yahoo sign-in, live league discovery, live roster retrieval, or token refresh against Yahoo has been claimed. These must be verified once the owner provides approved application credentials and completes OAuth consent. The tests use synthetic XML, not a captured live league fixture. There was no browser automation or screenshot QA in this release.
-
-## 2026-09-09 — Write-access investigation
-
-Inspected the owner's signed-in Yahoo developer account. Both existing fantasy applications expose locked read-only permissions. Yahoo's access application explicitly says write access is unavailable, although a lower note still invites exception details. Prepared an exception-request draft and documented required safeguards for a future write-enabled implementation. No existing Yahoo app was modified and no live team changes were attempted. Awaiting the owner's choice of existing versus separate OAuth application before continuing connection setup.
-
-## 2026-09-09 — Separate Yahoo app created
-
-Created confidential-client application `k95gYakw`, named Fantasy Football Edge, after explicit approval of the Developer Terms. Verified the app detail page, production homepage, and callback. No Fantasy Sports permissions have been granted. Credential installation and OAuth verification remain pending; desktop automatic approval review blocked Terminal UI access for secure credential transfer.
-
-## Credentials installed
-
-Installed the owner-provided client credentials without printing values, enforced mode 0600 on the VPS environment file, and recreated the container. Verified `configured:true` from production and navigated the real Connect Yahoo flow to Yahoo's consent screen. Paused at Yahoo's separate OpenID/OAuth terms acceptance; no successful token exchange or league read is claimed.
-
-## OAuth successful; Fantasy permission required
-
-Accepted the separately approved OpenID/OAuth terms and completed the production callback successfully. Encrypted token persistence is working. A live league-discovery request returned HTTP 401 with `additional_authorization_required` while the access token was unexpired. This confirms missing Fantasy authorization rather than an expired login. No league data was returned.
-
-Fixed the portal to distinguish this permission response from token expiration and hide the redundant connect action for signed-in users. Eight tests and syntax checks passed. Fantasy API approval remains the next external dependency; writes and automation are not enabled.
-
-## September 12, 2026 — Legacy client verification
-
-Recovered fantasy-2 credentials securely, retained its existing callback and added the portal callback, and completed OAuth against that app. Live league discovery returned HTTP 403 with an unexpired token: application not authorized. Original production client restored after the unsuccessful test. No league data was retrieved or modified. See Yahoo-Setup.md for storage and configuration details.
+A private Git bundle preserves the original code before the authorized repository rebuild. Never commit that bundle or captured private league pages.
