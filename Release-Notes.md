@@ -32,3 +32,7 @@ Added a dedicated **Waiver list** navigation section with NFL starter/backup as 
 Added the NFL starter/backup column to My roster using ESPN depth charts. Production build passed.
 
 Added the Yahoo refresh operations section, live five-second log polling, worker heartbeat/cooldown state, queued-request status and page-by-page importer progress. Production build validated.
+
+## Refresh freshness correction
+
+Investigated the reported stale roster: the served snapshot was still captured at 2026-09-13 00:06 UTC, with subsequent Yahoo requests blocked by HTTP 999. Tightened successful-refresh semantics: Yahoo uploads must include completed coverage for roster, league, matchups, settings, transactions, schedule, draft, research, and O/K/DEF pool groups. Empty player pages fail instead of silently ending pagination. Duplicate uploads cannot fulfill pending requests. Capture timestamps now use import start, so a request arriving mid-import remains pending for a subsequent run. All views show the same snapshot timestamp and owner cooldown/pending status; dashboard polling is ten seconds. Thirteen tests pass. A new complete Yahoo import remains pending until Yahoo allows access.
