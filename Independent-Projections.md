@@ -15,3 +15,13 @@ Forecasts with insufficient evidence remain null, so rookies or missing-history 
 Refresh deduplication includes a four-hour window so unchanged evidence can receive a new forecast without overwriting earlier prospective records. Source changes can trigger earlier refreshes. The initial rollout processes the full pool progressively in the background; it does not wait for all batches before making completed estimates visible.
 
 Live output review found unsupported matchup prose in Qwen's reasoning (including an incorrect expansion of an NFL team abbreviation). Player-facing explanations therefore use canonical input coverage, NFL role and opponent identifiers rather than repeating unverified model prose. Numerical estimates remain experimental Qwen outputs; the source-coverage wording does not assert that more sources imply better accuracy.
+
+## Statistical forecast rollout (September 12, 2026)
+
+The active numerical method is now `statistics-v1`. It calculates league-scored points for up to six prior current-season games, weighting each older game by 0.8 relative to the next. At least three games and recognized offensive scoring rules are required. The displayed range is weighted historical standard deviation, not calibrated uncertainty. Bye/out designations produce zero; insufficient evidence and unverified K/DEF scoring retain the explicitly labeled Yahoo fallback. Prior-season games and future games do not satisfy the minimum sample requirement. No numerical adjustment is invented from headlines, Reddit, weather or opponent descriptions.
+
+Qwen remains the news/roster commentary service. Numerical forecasts complete in the application without an inference request, reducing shared Ollama demand. No model installation, Ollama restart, shared configuration change, or NutsNews endpoint change is involved. Larger-model testing is deferred: the current service uses CPU inference, and additional RAM alone does not establish acceptable latency.
+
+Forecast records are immutable per evidence/window and preserve the original snapshot for prospective accuracy. The active accuracy panel measures only statistics-v1 forecasts saved before kickoff against completed imported outcomes, with paired Yahoo MAE. Older Qwen forecasts remain stored but are excluded from this comparison. The existing `qwenMae` response field is retained for compatibility and now labeled Statistical error in the UI. Accuracy is unproven until outcomes accumulate.
+
+Verification: 30 unit tests and production build pass. Live deployment must also confirm health, forecast method, and roster availability. Screen-lock/headless Yahoo collection is unchanged.
