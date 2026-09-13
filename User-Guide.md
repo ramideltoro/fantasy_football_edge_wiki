@@ -19,3 +19,7 @@ Sign in as the owner and click **Refresh from Yahoo** near the top of the portal
 Under **Recommendations → All trade & waiver candidates**, browse the complete imported candidate pool in pages of 50, search by name/position, or filter free agents/waivers versus rostered trade candidates. Columns include position, NFL team, availability, NFL starter/backup role, and projected points. Select a row to populate the incoming player comparison. Rostered candidates are not necessarily offered on Yahoo's trading block; their managers must agree to a trade.
 
 NFL roles use ESPN depth-chart order, matched by NFL team and normalized full name. First at a listed offensive position is Starter; subsequent entries are Backup with depth rank. Multiple WR starters are valid. Team defenses are labeled separately, and unmatched players are Unknown. Roles link to the source depth chart; role is not a promise of playing time or current injury clearance. Depth data is fetched independently of Yahoo and cached for one hour.
+
+## Dedicated waiver list
+
+Open **Waiver list** in the main navigation. Its first column is real **NFL starter / backup** status, followed by player, position, NFL team, availability, injury status, bye week, projected points, and rostered percentage. Click a player name for details and history. The list includes free agents and players on waivers, excludes rostered trade candidates, supports name/position/team search and availability filters, and paginates 50 rows ordered by projection. Missing depth-chart matches remain Unknown.

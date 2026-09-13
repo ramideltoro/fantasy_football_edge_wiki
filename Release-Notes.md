@@ -26,3 +26,5 @@ The full manual unattended import remains the last successful dataset (2026-09-1
 ## On-demand imports and NFL depth roles — 2026-09-12
 
 Deployed the owner refresh queue and minute-based Mac polling, plus a searchable/paginated full trade and waiver candidate list with NFL position and ESPN starter/backup depth role. Verified a real owner button click queues the request, worker-token retrieval sees it, and unauthenticated POST/GET are rejected. Verified the live Michael Penix Jr. row shows QB / Atlanta / Backup (2). All 12 tests and production build pass. The queued refresh respects the existing Yahoo HTTP 999 cooldown; a new full Yahoo import is not claimed.
+
+Added a dedicated **Waiver list** navigation section with NFL starter/backup as the first column, searchable available-player details, availability filtering, pagination and player-detail links. Production build validated.
