@@ -48,3 +48,9 @@ The Mac worker now sends one `application/zip` request per completed refresh to 
 ## Reduced Yahoo browsing scope
 
 At the owner's request, imports now collect only the first two pages (up to 50 players) of **available W/R/T** players, sorted by current-week projected points descending. The separate unfiltered player-list page and full O/K/DEF pagination are removed. Roster and league sections still refresh. Five-second minimum navigation spacing is retained, exceeding the requested one-second delay to avoid increasing traffic. Coverage `players-WRT-top2` means this bounded scope completed, not the entire Yahoo player pool. The ZIP replaces the previous pool rather than presenting old unrefreshed players as current. Checkpoint identity changes with this scope.
+
+## AI worker operations
+
+`importer/install-ai.ts` installs the independent minute-based Qwen worker. Private files `qwen-ssh-key`, `ai.lock`, `ai-status.json`, `ai.log`, and `ai-error.log` live under the Mac's FantasyFootballEdge support directory. Cloudflare service-token credentials are read from the central credentials file and passed only through the SSH process environment. Requests are bounded to four minutes, and abandoned claims become available after ten minutes. Failed research or model jobs expose an owner Retry analysis button. Forecast generation and Yahoo snapshot ingestion are independent; a Qwen outage does not stop roster refreshes.
+
+Backend endpoints: public `GET /api/intelligence`, owner/same-origin `POST /api/intelligence/retry`, worker-token `GET /api/ai/work` and `POST /api/ai/result`. Public responses contain own-team/public player evidence, not private league-page text. Source cache and prediction records persist in PostgreSQL.

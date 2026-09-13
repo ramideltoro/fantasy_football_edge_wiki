@@ -40,3 +40,9 @@ Investigated the reported stale roster: the served snapshot was still captured a
 Added one-ZIP-package data upload per completed refresh. A saved snapshot compressed from 219,754 to 32,116 bytes (about 85% smaller). All 15 tests and production build pass, including ZIP round-trip and malformed/oversized archive rejection. This reduces upload payload, not Yahoo browsing traffic. Worker remains paused.
 
 Verified the reduced import end-to-end at 2026-09-13 01:48 UTC: one ZIP upload succeeded with 17 roster players, 50 available RB/WR/TE players from exactly two player pages, and all eight roster/league page groups (10 pages total). Production coverage confirms `players-WRT-top2` complete. The run took approximately 65 seconds from capture start. All 15 tests pass; the worker is enabled.
+
+## Qwen player intelligence
+
+Implemented post-import research/analysis jobs, cached nflverse weekly stats and snap counts, schedule/opponent enrichment, league-scored history, a transparent gated Yahoo/history forecast blend, model-based lineup optimization, Qwen evidence selection, player usage charts, source-health metadata, and prospective model-versus-Yahoo accuracy tracking. The first live research run fetched all five data files and analyzed 67 players. Twenty tests pass, including no-future-data, custom scoring, ZIP validation and constrained Qwen output. Existing Yahoo browsing remains limited to two W/R/T pages; the independent AI worker never browses Yahoo.
+
+The numerical model is an experimental heuristic, not a trained or proven improvement. Week 1 forecasts remain Yahoo baselines until enough current-season games exist. Actual accuracy requires later completed-game imports. Injury evidence currently comes from Yahoo flags and matching RSS headlines, not a dedicated medical/injury feed. Qwen selects evidence and actions; it does not invent numeric scores or perform transactions.
