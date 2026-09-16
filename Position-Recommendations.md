@@ -9,3 +9,7 @@ The overview Potential lineup gain metric opens Recommendations. The existing op
 Verification: 31 tests, including six-position score validation and out-of-range rejection, plus production build. Browser verified six position sections, separate columns and an available shortlist. See Operations for the live Qwen connectivity limitation found during validation.
 
 The restored local worker now enforces one Qwen selection per supplied position using candidate-specific structured output, then checks all positions before publishing. This replaces the earlier best-effort six-item request. Compact evidence and separate integer ratings reduce ID confusion and prevent accepting partial positional coverage as a completed analysis.
+
+## Modular presentation and news context
+
+Six compact position cards lead Waivers, retaining separate Qwen priority, Yahoo points and statistical points. Rationale and comparisons expand on demand; the full briefing and player list remain available. Cited news assessments inform subsequent Qwen selections. The shared player drawer contains dated evidence and score history. See [News Intelligence](News-Intelligence.md).

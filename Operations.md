@@ -76,3 +76,7 @@ The last raw response is overwritten in the private Mac support directory as `ai
 Explanations that treat coverage counts as an advantage, or invoke absent news, now use the labeled evidence-summary fallback. The score prompt defines a 0–100 priority rubric rather than leaving the scale implicit. This does not constitute calibrated predictive accuracy.
 
 Live recovery verified at September 15, 2026, 11:36:52 PM EDT: latest snapshot analysis is complete, qwenUpdated=true, all six position selections have generated ratings and three player insights were saved. The final inference took 120 seconds (4,377 prompt tokens, 974 output tokens). A prior constrained run also succeeded in 105 seconds. Some Qwen prose remained unsupported—including interpreting a waiver date as game availability—so the portal substitutes explicitly labeled evidence summaries while retaining model selections and ratings. These checks establish working integration, not forecast accuracy.
+
+## News intelligence and modular portal (September 16, 2026)
+
+See [News Intelligence](News-Intelligence.md) for the consolidated 30-minute VPS collector, source backoff/search limits, evidence validation, AI batch queue, additive APIs and redesigned navigation. News & AI refresh is independent of Yahoo refresh. Source diagnostics and worker logs are in Operations; Yahoo page pacing and the single-ZIP upload remain unchanged.
