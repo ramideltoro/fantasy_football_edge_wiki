@@ -19,3 +19,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Game-day player experience](Game-Day-Experience.md): roster/waiver comparisons, player dossiers, Qwen points, actual NFL starts, health and public team-name privacy.
 
 - [Sportsbook projections and six-hour refresh](Sportsbook-Projections.md)
+
+- [League scoring, clickable Qwen explanations and Overview updates](League-Scoring-and-Explanations.md)

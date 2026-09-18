@@ -10,7 +10,7 @@ Initial coverage includes Bet365, BetMGM, BetRivers (labelled RiversCasino by th
 
 Available player markets are passing yards, rushing yards, receiving yards and anytime touchdown odds. Game markets are full-game spread, total and moneyline. The collector reads all players and all populated book columns, including rows initially hidden behind the source’s “See All” control. It does not follow affiliate/betting links, place bets, or scrape unrelated sports and casino content.
 
-**The fantasy number is explicitly a partial subtotal.** The board lacks receptions, passing touchdowns, interceptions, fumbles, conversions, kicking and defensive player-scoring components. Missing components are unknown, never silently treated as a complete zero-valued forecast. The subtotal must not be compared directly with complete Yahoo/Qwen projections. Yahoo, Qwen, lineup optimization and existing ESPN market context remain separate.
+**Offensive player-prop numbers are explicitly partial subtotals.** The board lacks receptions, passing touchdowns, interceptions, fumbles and conversions. Missing components are unknown, never silently treated as a complete zero-valued forecast. The subtotal must not be compared directly with complete Yahoo/Qwen projections. Yahoo, Qwen, lineup optimization and existing ESPN market context remain separate. K and DEF use separately labelled game-line models, described below.
 
 ## Calculation
 
@@ -26,6 +26,15 @@ VegasInsider’s combined player board does **not** label each prop with an even
 
 Numbers are withheld when the player is listed out/IR/PUP/suspended, the game is locked/completed, the kickoff has passed, the source is more than six hours plus five minutes old, season/week or kickoff disagree, the player/game match is ambiguous, the position lacks usable scoring markets, or insufficient comparable books remain. Quotes and reference calculations remain inspectable with an inactive/old-data warning.
 
+## Kicker and defense models — September 18 follow-up
+
+K and DEF do not have sufficient direct player props on this board. Their **Modeled** numbers combine spread/total pairs from at least three sportsbooks with league-scored nflverse team history. The popup includes each book's lines, implied team/opponent points, per-book fantasy estimate, consensus calculation and all raw game quotes. Moneylines are context; reference columns are not counted as books.
+
+- **K:** `(game total − team spread) / 2 × historical fantasy kicking points per team NFL point`. The historical kicking share uses distance-specific made field goals and extra points, recency weighting and shrinkage toward NFL team history. It assumes the player is the team's primary kicker.
+- **DEF:** historical league-scored sacks, turnovers, blocks and touchdowns, plus expected points-allowed points. The opponent's implied NFL total is `(game total + team spread) / 2`. A normal approximation with an explicitly assumed 10-point standard deviation distributes that total across the league's scoring brackets instead of selecting a single midpoint bracket.
+
+Each qualifying book receives equal weight. These are our modeled estimates derived from betting lines, not sportsbook-published player fantasy projections. They are not live-game estimates and are not proven superior to Yahoo. The same week, kickoff, freshness, availability and game-lock checks apply. Completed players wait for a matching upcoming-week snapshot/market; current-game or next-week odds are never silently mixed. [League scoring and explanations](League-Scoring-and-Explanations.md) covers baseline construction and historical points-allowed limitations.
+
 ## Refresh and persistence
 
 `server/sportsbookService.ts` creates `sportsbook_state` (singleton current board, attempted time, next due time, error and failure count) and `sportsbook_history` (complete successful boards retained for 30 days).
@@ -35,7 +44,7 @@ The backend checks once per minute, collecting both pages when due. Successful c
 - `GET /api/sportsbook`: source health, last/next refresh, book/operator lists and quote counts.
 - `GET /api/sportsbook/board`: complete normalized quote snapshot, source status and timing.
 - `POST /api/sportsbook/refresh`: owner-session or existing import-token authorization. Empty JSON checks whether refresh is due; `{ "force": true }` explicitly refreshes. No new credential is needed.
-- `GET /api/dashboard`: enriches each roster/waiver player with the calculated partial projection and supporting quotes.
+- `GET /api/dashboard`: enriches each roster/waiver player with the calculated partial or specialist modeled projection and supporting quotes.
 
 A Codex heartbeat (`refresh-fantasy-sportsbook-odds`) checks health every six hours and requests a due refresh only when needed. Routine collection runs on the VPS regardless of whether the desktop app is open.
 

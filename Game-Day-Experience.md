@@ -4,7 +4,7 @@ Released September 18, 2026 at https://fantasy.ramideltoro.com.
 
 ## The scouting board
 
-My Team → Roster and Waivers share the same player table. Its columns are Compare, NFL Starter / Backup, Fantasy position (the fantasy roster assignment, such as BN or W/R/T), Player, Slot (NFL position), Yahoo projected, Qwen projected, Rostered, and Started. The roster search and separate Player Research tab have been removed. Position filters remain. On phones each row becomes a labeled player card.
+My Team → Roster and Waivers share the same player table. Its columns are Compare, NFL Starter / Backup, Fantasy position (the fantasy roster assignment, such as BN or W/R/T), Player, Slot (NFL position), Yahoo projected, Qwen projected, Bookies projected, Rostered, and Started. Waivers replaces Fantasy position with clickable **Qwen probability start**. Qwen point values also open a scoring-explanation popup. The roster search and separate Player Research tab have been removed. Position filters remain. On phones each row becomes a labeled player card.
 
 Check at least two players to reveal **Compare players**. The dialog can compare every selected player. Clicking a player name opens the same dossier, including an ESPN photo or team logo, position, NFL role, availability, projections, source links, historical results, and imported stats. Missing source photos use a neutral icon.
 
@@ -14,13 +14,13 @@ Lineup & decisions caps its ten-player waiver shortlist at three quarterbacks, f
 
 **Yahoo projected** always preserves the Yahoo number, including a missing value. It is not replaced by another model.
 
-**Qwen projected** is returned by the existing local `qwen2.5:3b` model. The previous `statistics-v1` formula is no longer used to fill this column. Jobs use method `qwen-points-v4`, small batches, player IDs as required JSON object keys, supplied league scoring and past actual results, position/depth evidence, injury designations, matched reporting, and available ESPN game-line context. Yahoo projections are excluded from the model input. Historical results may be scored mechanically using the league rules, but the new projected points are selected/calculated by Qwen itself.
+**Qwen projected** is returned by the existing local `qwen2.5:3b` model. The active method is `qwen-points-v5`: six-player batches, exact player-ID keys, league-scored historical baselines, position/depth evidence, availability, reporting and available ESPN game-line context. Qwen selects a bounded numerical adjustment from scored candidates; Yahoo projections are excluded. This corrects the earlier v4 kicker/game-total confusion. See [League scoring and explanations](League-Scoring-and-Explanations.md) for the full method, scoring receipts and limitations.
 
 The model supplies points, whole-number subjective play/start percentages, and evidence keys. Ranges were removed to keep the small-model calculation focused. Team-defense units have no individual play/start probability. The server builds the displayed evidence summary from those keys; unverified free-form model stories are not published. Validation rejects missing/cross-player IDs, fractional or out-of-bounds percentages, contradictory availability, positive forecasts with zero chance to play, estimates made after kickoff, and unsupported point estimates. Null means insufficient evidence or too late for a pre-game forecast. A model number is never invented just to fill a cell.
 
 Forecasts older than four hours are labeled stale and do not drive the lineup optimizer; same-week prior results remain available in the dossier for up to 24 hours. Injury mismatches invalidate a stored forecast. New jobs are prioritized for the owner's roster; news/analysis work is interleaved to avoid starving reporting. A rejected projection gets one immediate Qwen correction pass with the validator’s feedback; no rejected response is published. Failed jobs retry at most three times with ten-minute leases/backoff. IDs, sources, completion time and model method remain inspectable. This is an experimental model, not a calibrated probability system or established improvement over Yahoo.
 
-Sportsbook consensus projections were explicitly deferred by the owner. There is no sportsbook column, subscription, API credential, or invented three-book average. Existing ESPN game totals/spreads remain context only.
+**Bookies projected** was subsequently authorized and added using every available sportsbook on VegasInsider's public NFL boards, refreshed on the backend every six hours. Offensive numbers are explicitly partial player-prop subtotals. K/DEF are separately labelled estimates from game lines and historical scoring. Click a number for the calculation and raw quotes. See [Sportsbook projections](Sportsbook-Projections.md).
 
 ## NFL role and actual starts
 
@@ -32,13 +32,13 @@ Profile identity matches require the player's normalized name, NFL team, and pos
 
 ## Health and privacy
 
-Research starts with three color-coded boxes: healthy/no injury flags, injury/availability flags, and players whose current Qwen play probability is below 50%. The model category can overlap the injury category. Missing or stale forecasts are never counted as predicted absences; unverified profiles are excluded from the healthy count. Each populated box opens those players' dossiers.
+Overview starts with three color-coded boxes: healthy/no injury flags, injury/availability flags, and players whose current Qwen play probability is below 50%. The model category can overlap the injury category. Missing or stale forecasts are never counted as predicted absences; unverified profiles are excluded from the healthy count. Each populated box opens those players' dossiers. A fact-based weekly matchup commentary follows. Research now starts with **Make the next move count.**
 
 Public league views show fantasy **team names**, including the current opponent. Manager names, emails, league IDs, raw Yahoo sections, sessions and operational events remain private. Public enrichment contains only NFL-player/source information. Public JSON response caching is limited to explicitly public read-only routes; the owner dashboard/session routes do not share that response cache.
 
 ## Look and interaction
 
-Smoked charcoal, hot amber and restrained orange form the shared palette, with condensed Anton headlines and Inter body text. Copy uses original playful football language. Motion includes entrance, hover, status and modal transitions, with `prefers-reduced-motion` respected. Native modal dialogs support keyboard focus containment, Escape, backdrop close and return focus. Tables have position filters; mobile cards keep player identity first. Refresh diagnostics are expandable rather than dominating the page.
+Smoked charcoal, hot amber and restrained orange form the shared palette, with Apple system typography (SF on supported Apple devices, Helvetica/Arial fallbacks elsewhere). Copy uses original playful football language. Motion includes entrance, hover, status and modal transitions, with `prefers-reduced-motion` respected. Native modal dialogs support keyboard focus containment, Escape, backdrop close and return focus. Tables have position filters; mobile cards keep player identity first. Refresh diagnostics are expandable rather than dominating the page.
 
 ## Release and rollback
 

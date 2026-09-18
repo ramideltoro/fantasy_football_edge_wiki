@@ -1,5 +1,7 @@
 # Independent Qwen forecasts and expanded position imports
 
+**Current implementation:** [League scoring and explanations](League-Scoring-and-Explanations.md) describes `qwen-points-v5`, deployed September 18, 2026. Qwen selects bounded league-scored forecasts with clickable calculation receipts, including K and DEF. The sections below record earlier iterations; `statistics-v1` is no longer the active Qwen column.
+
 Yahoo scope: retain two available W/R/T pages, add exactly one available page each for QB, K and DEF, all sorted by current-week projected points. All four coverage markers must validate before a snapshot is accepted. Sequential page delay and single ZIP upload are unchanged. Live import verified 50 W/R/T, 25 QB, 25 K and 19 DEF rows.
 
 Research adds nflverse weekly team statistics to the existing player stats and snap counts. Historical raw kicking/defense/offensive fields, league scoring, opponent, role and recent reporting are provided to Qwen in eight-player batches. Yahoo projected points are excluded from those requests. News includes publisher RSS feeds, player-specific Google News searches and public r/fantasyfootball Atom RSS. Reddit is unverified opinion. This uses Google News search, not a general Google Search API. Unavailable feeds are recorded rather than bypassed.

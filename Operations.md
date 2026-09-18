@@ -84,3 +84,9 @@ See [News Intelligence](News-Intelligence.md) for the consolidated 30-minute VPS
 ### VegasInsider odds desk
 
 The backend now refreshes the complete NFL odds boards every six hours, with a persistent due time and automatic retries. Check `/api/sportsbook` for health and `/api/sportsbook/board` for the normalized source data. See [Sportsbook projections](Sportsbook-Projections.md) for the calculation, failure behavior and authorized refresh endpoint.
+
+### League-scored Qwen release
+
+Current numerical jobs use `qwen-points-v5`; research version 11 supplies the scoring baselines. `/api/projections` reports queue coverage and prospective accuracy for this method only. Legacy v4/statistical jobs remain persisted but cannot fill the new Qwen column. Deployment recalculates progressively in six-player batches using the existing Mac worker; ready roster/K/DEF batches are prioritized, and four-hour freshness rules still apply. No shared Ollama configuration change is required.
+
+Pre-release source/database backup: `/var/backups/fantasy-football-edge/calibration-20260918/`. Build and container test logs are retained there. Run the runtime container's test command with the repository `tests` directory mounted at `/app/tests:ro`; the production image intentionally excludes tests. See [League scoring and explanations](League-Scoring-and-Explanations.md) for calculations and verification.

@@ -1,5 +1,9 @@
 # Release notes
 
+## 2026-09-18 — League-scored Qwen and the weekly overview
+
+Replaced unbounded Qwen point generation with league-scored historical candidates and model-selected adjustments, fixing the Jason Sanders 44.50 outlier (verified live at 10.24). Added clickable point/probability explanations, K/DEF modeled sportsbook estimates with all-book receipts, and the requested waiver column change. Moved the health board to Overview and next-move panel to Research; added a weekly matchup commentary, actual chart labels, matching legend colors, the two team-name aliases and Apple system typography. The six-hour odds refresh remains active. See [League scoring and explanations](League-Scoring-and-Explanations.md) for method details, 67-test validation and rollback.
+
 ## V2 rebuild — 2026-09-12
 
 Implemented:
