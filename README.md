@@ -17,3 +17,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [News intelligence and modular dashboard](News-Intelligence.md): RSS collection, cited Qwen events, free market context, refresh controls, APIs and operations.
 
 - [Game-day player experience](Game-Day-Experience.md): roster/waiver comparisons, player dossiers, Qwen points, actual NFL starts, health and public team-name privacy.
+
+- [Sportsbook projections and six-hour refresh](Sportsbook-Projections.md)

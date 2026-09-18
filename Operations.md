@@ -80,3 +80,7 @@ Live recovery verified at September 15, 2026, 11:36:52 PM EDT: latest snapshot a
 ## News intelligence and modular portal (September 16, 2026)
 
 See [News Intelligence](News-Intelligence.md) for the consolidated 30-minute VPS collector, source backoff/search limits, evidence validation, AI batch queue, additive APIs and redesigned navigation. News & AI refresh is independent of Yahoo refresh. Source diagnostics and worker logs are in Operations; Yahoo page pacing and the single-ZIP upload remain unchanged.
+
+### VegasInsider odds desk
+
+The backend now refreshes the complete NFL odds boards every six hours, with a persistent due time and automatic retries. Check `/api/sportsbook` for health and `/api/sportsbook/board` for the normalized source data. See [Sportsbook projections](Sportsbook-Projections.md) for the calculation, failure behavior and authorized refresh endpoint.

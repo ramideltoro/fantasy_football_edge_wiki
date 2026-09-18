@@ -52,3 +52,7 @@ Live verification completed on 2026-09-13 at 02:14 UTC: the local Qwen2.5 3B wor
 ## September 18, 2026 — Game day, with receipts
 
 Rebuilt roster and waivers around one scouting board and shared photo-rich player dossiers; added modal comparisons and instant outgoing/incoming scenarios; capped the waiver shortlist at three QBs; collapsed candidate and refresh detail; replaced Player Research with a health overview; exposed opponent team names while retaining manager privacy. Added actual NFL season starts from ESPN game rosters, independent Qwen-generated points and availability estimates, and a bolder amber/charcoal theme with original football copy and reduced-motion support. Sportsbook consensus was deferred by the owner. See [Game-day player experience](Game-Day-Experience.md) for sources, calculation definitions, validation and rollback.
+
+## 2026-09-18 — VegasInsider sportsbook receipts
+
+Added the Bookies projected column to roster and waivers, with the same data in player/compare dossiers. Numbers open a dedicated calculation popup. The source supplies a partial points subtotal, clearly labelled with missing components and exact raw quotes. All eight available sportsbooks are collected; two pick’em operators are shown separately. Added a persistent six-hour backend refresh, retry/backoff, stale/locked-data handling and source health endpoints. See [Sportsbook projections](Sportsbook-Projections.md) for the calculations and source limitations. This supersedes the earlier sportsbook deferral.
