@@ -39,4 +39,6 @@ Live checks confirmed Jason Sanders at **10.24 Qwen points** and **8.90 modeled 
 
 Phone checks used a 390 px viewport with no page overflow; the explanation dialog measured 374 px. Escape closes the top explanation and returns to the underlying player dossier. The browser reported no JavaScript errors. The weekly commentary measured 114 words, and its player mentions opened the matching dossiers. Anonymous responses retained no private league sections or operational events.
 
+The final live audit at 12:19 UTC matched all 126 unlocked player records to the current research: 116 current numeric forecasts and 10 explicit unconfirmed-role results. Completed games were excluded from this pregame audit. A subsequent normal Yahoo/Qwen refresh cycle was already running; fresh accepted forecasts remain visible while replacement batches process. The dedicated inference runtime described in Operations resolved the shared context-size stalls.
+
 The source and PostgreSQL backup before this follow-up are retained at `/var/backups/fantasy-football-edge/calibration-20260918/` on the backend VPS. Restore its source archive and rebuild/recreate the dedicated web service to revert application behavior. Existing credentials, database volumes, six-hour odds scheduler and Yahoo importer cadence were preserved.
