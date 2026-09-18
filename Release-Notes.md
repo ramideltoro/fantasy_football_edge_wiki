@@ -60,3 +60,11 @@ Rebuilt roster and waivers around one scouting board and shared photo-rich playe
 ## 2026-09-18 — VegasInsider sportsbook receipts
 
 Added the Bookies projected column to roster and waivers, with the same data in player/compare dossiers. Numbers open a dedicated calculation popup. The source supplies a partial points subtotal, clearly labelled with missing components and exact raw quotes. All eight available sportsbooks are collected; two pick’em operators are shown separately. Added a persistent six-hour backend refresh, retry/backoff, stale/locked-data handling and source health endpoints. See [Sportsbook projections](Sportsbook-Projections.md) for the calculations and source limitations. This supersedes the earlier sportsbook deferral.
+
+## 2026-09-18 — Four playbooks and sorting everywhere
+
+- Waiver start percentages and Qwen numbers open their explanation directly, without the repeated “Why this number?” caption.
+- Every table has keyboard-accessible ascending/descending column sorting. Player tables sort the entire filtered set before pagination and preserve checked players.
+- My Team's lineup recommendations have Yahoo-only, Qwen-only, bookies-only and combined toggles, with per-player inputs and explicit source coverage. The combined method completes partial sportsbook markets using uncovered league-scored historical components before averaging; bookies-only keeps partial-total labels.
+- Tied lineups prefer fewer moves and do not recommend equivalent zero-gain FLEX shuffles.
+- 77 tests and the production build pass. Desktop/mobile browser checks covered the four modes, pagination, percentage popup and sorting. See [the source and calculation contract](Lineup-Modes-and-Table-Sorting.md).

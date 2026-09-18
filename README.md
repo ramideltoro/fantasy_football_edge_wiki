@@ -21,3 +21,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Sportsbook projections and six-hour refresh](Sportsbook-Projections.md)
 
 - [League scoring, clickable Qwen explanations and Overview updates](League-Scoring-and-Explanations.md)
+
+- [Four lineup playbooks and sortable tables](Lineup-Modes-and-Table-Sorting.md)
