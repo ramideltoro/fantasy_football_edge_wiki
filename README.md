@@ -15,3 +15,5 @@ Code: https://github.com/ramideltoro/fantasy_football_edge
 This documentation describes the replacement implementation. Release notes distinguish deployed verification from remaining integration work.
 
 - [News intelligence and modular dashboard](News-Intelligence.md): RSS collection, cited Qwen events, free market context, refresh controls, APIs and operations.
+
+- [Game-day player experience](Game-Day-Experience.md): roster/waiver comparisons, player dossiers, Qwen points, actual NFL starts, health and public team-name privacy.
