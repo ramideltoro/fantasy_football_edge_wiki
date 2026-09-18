@@ -23,3 +23,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [League scoring, clickable Qwen explanations and Overview updates](League-Scoring-and-Explanations.md)
 
 - [Four lineup playbooks and sortable tables](Lineup-Modes-and-Table-Sorting.md)
+
+- [Game plan, kickoff watch and receipts](Game-Plan-and-Receipts.md): eight connected tools for availability, risk, FLEX timing, three-week planning, waiver impact and honest forecast/decision evaluation.

@@ -1,5 +1,13 @@
 # Release notes
 
+## 2026-09-18 — Eight connected game-plan tools
+
+Added kickoff availability alerts and opt-in open-page browser notifications; a persistent pregame forecast report card; three-week roster planning; material changes since the last visit; protect/chase risk preferences; multi-week waiver impact; FLEX timing and late-injury contingencies; and weekly decision/outcome recaps. Overview links directly to relevant actions. Detailed tools are grouped under My Team, Waivers and Research, with shareable tab URLs, player popups and sortable tables.
+
+Validated with 94 passing tests and a production TypeScript/Vite build. Live checks covered the risk tradeoff, sportsbook risk exclusion, sortable planning table, immediate add/drop comparison, depth changes, three-week totals, matched-game report filter, final/in-progress recaps, kickoff source health, privacy and 390 px mobile layout. The first successful game-plan run stored 1,575 pregame forecasts and graded 16 original Yahoo observations; Qwen and combined remain prospective. All 32 schedule teams and fresh ESPN checks for the roster’s 13 NFL teams were present. Existing six-hour sportsbook scheduling remained healthy.
+
+See [Game plan and receipts](Game-Plan-and-Receipts.md) for methods, source freshness, notification limits, historical-data limitations and rollback.
+
 ## 2026-09-18 — League-scored Qwen and the weekly overview
 
 Replaced unbounded Qwen point generation with league-scored historical candidates and model-selected adjustments, fixing the Jason Sanders 44.50 outlier (verified live at 10.24). Added clickable point/probability explanations, K/DEF modeled sportsbook estimates with all-book receipts, and the requested waiver column change. Moved the health board to Overview and next-move panel to Research; added a weekly matchup commentary, actual chart labels, matching legend colors, the two team-name aliases and Apple system typography. The six-hour odds refresh remains active. A dedicated local inference runtime now prevents other applications' context sizes from stalling fantasy requests. See [League scoring and explanations](League-Scoring-and-Explanations.md) for method details, 68-test validation and rollback, and [Operations](Operations.md) for runtime configuration.

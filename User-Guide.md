@@ -1,37 +1,34 @@
 # User guide
 
-- **Overview:** current starter totals, projected lineup opportunity, injury/bye watch and projected-versus-actual chart.
-- **My roster:** searchable roster with slots, injury flags, kickoff locks, projections, actuals, roster/start percentages and player details.
-- **Player lab:** imported player pool, popularity-versus-projection chart, up to three side-by-side player comparisons, per-player projection/popularity history, and a prospective forecast scorecard. Player tables are paginated in groups of 50.
-- **Recommendations:** the highest-projected eligible unlocked lineup plus a shortlist of imported free agents/waivers. A trade/waiver scenario compares an outgoing and incoming player’s current-week points and flags locks, positions and availability. Changes remain advice; apply decisions yourself in Yahoo.
-- **League:** anonymized public matchup and standings; Google owner sign-in reveals imported league page detail, rules, schedule, transactions and draft history.
-- **News & trends:** attributed ESPN/Yahoo headlines linking to original articles. Player details show historical imported metrics when repeat samples exist.
-- **Import health:** last capture time, freshness, history samples and owner-only import events.
+Start on **Overview**. “Coach, start here” surfaces the next useful actions, followed by the health board, changes since your last visit, the weekly matchup commentary and projected-versus-actual chart. Every player name opens the shared dossier; projection numbers open their source calculations where shown.
 
-A roster refresh is a snapshot, not a live feed. Check freshness before acting. A dash means unavailable, not zero. Yahoo projections and win probabilities are provider estimates. Current points, original projection and live projection have different meanings.
+## My Team
 
-The optimizer respects roster slots, flex eligibility, byes, unavailable statuses and game locks. It does not incorporate an independent injury model, trade acceptance probability or a guarantee of winning. Compare player context and fresh news before executing a move.
+- **Roster:** compare selected players, inspect NFL role, your fantasy slot, Yahoo/Qwen/bookies projections, rostered percentage and actual NFL season starts. Check two or more players to open a side-by-side comparison.
+- **Lineup & decisions:** choose Yahoo only, Qwen only, Bookies only or All combined. Then choose most expected points, protect the lead or swing for the fences. The suggested lineup respects eligibility and game locks. Expected-point tradeoffs, missing sources and historical-range sample counts are explicit. Bookies mode uses partial/category scores and disables full-score risk preferences.
+- **Three-week plan:** see upcoming opponents, byes, injury/data flags, lineup gaps and pickup options. Future weeks use historical planning baselines, not future-week model forecasts.
+- **Kickoff watch:** review flagged starters, direct bench replacements, lock countdowns, source checks, FLEX timing moves and late-game contingencies. Browser notifications are opt-in and require the page to remain open; the server continues checking independently.
+- **Team analysis:** read Qwen’s broader weekly brief, evidence and player context.
 
-## Refresh on demand and trade candidates
+## Waivers
 
-Sign in as the owner and click **Refresh from Yahoo** near the top of the portal. This queues a durable request for the Mac importer. The Mac checks every minute while awake and online, bypassing the ordinary hourly/football-window cadence for an explicit request. Existing Yahoo rate-limit cooldowns still apply. Repeated clicks coalesce into one pending request; a successful snapshot captured after the request completes it. The reload icon only reloads the dashboard.
+**Waivers** uses the same scouting table and dossiers as your roster. Filter by position and availability; sort any column. Click Qwen points or start probability for the explanation. Sportsbook figures show their partial coverage or specialist-model labels and open the underlying quotes and math.
 
-Under **Recommendations → All trade & waiver candidates**, browse the complete imported candidate pool in pages of 50, search by name/position, or filter free agents/waivers versus rostered trade candidates. Columns include position, NFL team, availability, NFL starter/backup role, and projected points. Select a row to populate the incoming player comparison. Rostered candidates are not necessarily offered on Yahoo's trading block; their managers must agree to a trade.
+**Pickup impact** asks for an outgoing roster player, then an available incoming player. Selecting both immediately opens the player comparison. Close it to inspect three weeks of before/after lineups, projected changes, gaps and position depth sacrificed. The candidate list starts collapsed. These are previews; make claims or roster moves in Yahoo.
 
-NFL roles use ESPN depth-chart order, matched by NFL team and normalized full name. First at a listed offensive position is Starter; subsequent entries are Backup with depth rank. Multiple WR starters are valid. Team defenses are labeled separately, and unmatched players are Unknown. Roles link to the source depth chart; role is not a promise of playing time or current injury clearance. Depth data is fetched independently of Yahoo and cached for one hour.
+## Research
 
-## Dedicated waiver list
+- **Report card:** compare Yahoo, Qwen and combined forecasts against final results, filter by position and restrict comparisons to shared player-games. Lower average miss is better. Sportsbook partial forecasts are evaluated separately. New model samples accumulate after the saved forecasts’ games finish.
+- **Weekly recap:** choose a week for the roster MVP, largest Yahoo miss, pickup spotlight and start/sit receipts. A better bench outcome alone does not prove a bad pregame choice. In-progress weeks are marked.
+- **What changed:** filter material health, role, projection, waiver-pool and roster updates since your last visit in this browser. “I’m caught up” resets the marker.
+- **News intelligence:** next-move recommendations, attributed headlines, source links and news evidence.
 
-Open **Waiver list** in the main navigation. Its first column is real **NFL starter / backup** status, followed by player, position, NFL team, availability, injury status, bye week, projected points, and rostered percentage. Click a player name for details and history. The list includes free agents and players on waivers, excludes rostered trade candidates, supports name/position/team search and availability filters, and paginates 50 rows ordered by projection. Missing depth-chart matches remain Unknown.
+## League and Operations
 
-**My roster** also shows NFL starter/backup as its first column, linked to ESPN depth charts. This is the player's real NFL depth role, separate from your fantasy Slot and Yahoo Started percentage. Missing matches show Unknown; defenses show Team defense.
+**League** shows opponent team names and standings publicly while hiding manager identities. Owner sign-in exposes the private imported league pages. **Operations** contains worker activity, Yahoo cooldown/pending state and import health.
 
-## Yahoo refresh operations
+The owner refresh control queues a request for the Mac importer; the reload icon only reloads the dashboard. The Mac must be awake and online to import Yahoo, and existing rate-limit cooldowns still apply. Sportsbook boards refresh independently on the VPS every six hours; kickoff injury checks tighten near games.
 
-The **Yahoo refresh** navigation section is owner-only and combines the on-demand refresh button with request state, worker last check-in, reported state, cooldown deadline, and the latest 150 timestamped operation logs. Logs refresh every five seconds while the section is open. New imports report each roster/page group and player page, upload, and success/failure. An old check-in does not establish that the Mac is online now. Yahoo cooldowns remain enforced and queued requests survive failures.
+All tables can be sorted from their column headers. On narrow roster/waiver cards, use the mobile sort selector. Detailed tables scroll horizontally. A dash means unavailable, not zero. Check source timestamps before acting. No automatic Yahoo lineup changes, trades or waiver claims are submitted.
 
-The waiver list is now intentionally limited to the first two Yahoo pages of available W/R/T players sorted by projected points (up to 50). QB, kicker, defense and deeper waiver candidates are not imported into this shortlist. Your own full roster remains available separately.
-
-## AI insights
-
-Open **AI insights** for Qwen's weekly decision brief, projected-player rankings, suggested lineup, and accuracy comparison with Yahoo. Click a player name to chart recent league-scored points, targets, carries and snap percentage, and view matching headlines. Source timestamps and missing data appear with the analysis. Early-season forecasts intentionally match Yahoo until enough current-season games exist. Starter status alone is not a prediction of performance. Qwen comments are explanations to review, never automatic roster transactions.
+See [Game plan and receipts](Game-Plan-and-Receipts.md), [lineup modes](Lineup-Modes-and-Table-Sorting.md) and [sportsbook calculations](Sportsbook-Projections.md) for precise methods and limitations.
