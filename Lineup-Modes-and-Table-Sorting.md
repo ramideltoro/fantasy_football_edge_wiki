@@ -19,6 +19,8 @@ Numbers, percentages, signed scores and dates sort by value; names/text use natu
 
 Roster and waiver sorting happens across the full filtered list **before** the 30-row page is selected. Changing sort resets to page one. Position filters and periodic dashboard refreshes preserve the selected sort. Comparison checkboxes stay attached to player IDs when rows move; Compare itself is sortable by selection.
 
+On phones (700 px and narrower), roster/waiver rows use cards. A visible **Sort by** menu lists all ten columns, and an ascending/descending control updates the same sorting state as desktop headers. Original order resets sorting. Verification selected Qwen start probability, switched to descending, and confirmed 95% players at the top without horizontal document overflow.
+
 Qwen numbers and start percentages now act as underlined explanation buttons without the repeated “Why this number?” caption. Missing/locked coverage messages remain visible. The modal still includes role/health evidence, league scoring, source links and timestamps.
 
 ## Verification and rollback
