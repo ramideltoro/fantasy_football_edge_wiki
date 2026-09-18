@@ -37,4 +37,6 @@ The release has 68 passing tests and a successful TypeScript/Vite production bui
 
 Live checks confirmed Jason Sanders at **10.24 Qwen points** and **8.90 modeled sportsbook points**, with a working 95% starting-probability explanation. Other live examples include Broncos Qwen 7.27 and sportsbook 6.87. These are time-specific forecasts, not fixed outputs or accuracy claims. Chart checks confirmed Jahmyr Gibbs 23.30 and DJ Moore −0.10, with exact bar/legend color matches. Research placement and both renamed teams were verified in the live browser.
 
+Phone checks used a 390 px viewport with no page overflow; the explanation dialog measured 374 px. Escape closes the top explanation and returns to the underlying player dossier. The browser reported no JavaScript errors. The weekly commentary measured 114 words, and its player mentions opened the matching dossiers. Anonymous responses retained no private league sections or operational events.
+
 The source and PostgreSQL backup before this follow-up are retained at `/var/backups/fantasy-football-edge/calibration-20260918/` on the backend VPS. Restore its source archive and rebuild/recreate the dedicated web service to revert application behavior. Existing credentials, database volumes, six-hour odds scheduler and Yahoo importer cadence were preserved.
