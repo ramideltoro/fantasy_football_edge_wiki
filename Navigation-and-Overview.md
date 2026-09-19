@@ -8,7 +8,7 @@ Only three primary blocks remain:
 
 1. **Who’s ready to rumble?** stays at the top. The healthy, injury-watch and Qwen likely-out counts open the corresponding player dossiers. Existing overlap and missing-evidence labels are preserved.
 2. **This week’s showdown** shows your team and opponent, each team's actual score and Yahoo live projection, plus a short projected-margin summary. Missing values stay unknown. Live projections are clearly distinguished from scored points.
-3. **The locker-room read** retains the weekly commentary and links to Set lineup and Kickoff watch.
+3. **The locker-room read** now assesses matchup numbers, opponent results and a coaching verdict, with links to Set lineup and Kickoff watch. A closed scouting report contains deeper player analysis and game receipts; see [Locker-room read](Locker-Room-Read.md).
 
 The health summary spans the page. On large screens, the matchup and commentary sit beside each other; narrow screens stack them. The change feed, scouting shortcuts, individual alert lists, tracking metrics and detailed charts no longer occupy Overview.
 

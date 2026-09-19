@@ -31,3 +31,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Scouting and league lab](Scouting-and-League-Lab.md): workload and matchup radar, trade finder, claim coach, experimental playoff scenarios and draft board.
 
 - [Navigation and weekly overview](Navigation-and-Overview.md): the focused weekly summary and current map of grouped tools.
+
+- [The locker-room read](Locker-Room-Read.md): an evolving, evidence-backed coach’s assessment with opponent history and game receipts.

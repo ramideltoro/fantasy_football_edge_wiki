@@ -1,5 +1,11 @@
 # Release notes
 
+## 2026-09-19 — The coach has the film
+
+Replaced the basic Overview commentary with a styled, profane and optimistic coaching assessment grounded in live matchup projections, scored points, original-to-live movement, completed opponent games and legal lineup options. The expandable scouting report covers both teams’ playmakers, recent form, availability and sortable game receipts. Fresh data updates the read through existing dashboard polling; phrasing rotates every 30 minutes. Missing history, thin samples and stale sources remain explicit. Final results switch to a postgame read.
+
+Production build and all 123 tests pass. See [Locker-room read](Locker-Room-Read.md) for sources, calculations, refresh semantics and validation.
+
 ## 2026-09-19 — A focused overview and grouped navigation
 
 Overview now contains the health board, the weekly team-versus-opponent scorecard and commentary. My Team groups current lineup work and forward planning; Waivers groups player discovery and pickup tools; Research groups news/analysis, past results and preseason drafting. The scoring charts moved into a closed Roster disclosure, the shortlist moved to Waivers and full refresh controls moved to Operations. All existing bookmark URLs remain valid.
