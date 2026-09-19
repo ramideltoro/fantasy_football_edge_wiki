@@ -25,3 +25,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Four lineup playbooks and sortable tables](Lineup-Modes-and-Table-Sorting.md)
 
 - [Game plan, kickoff watch and receipts](Game-Plan-and-Receipts.md): eight connected tools for availability, risk, FLEX timing, three-week planning, waiver impact and honest forecast/decision evaluation.
+
+- [Yahoo authorized sync](Yahoo-Authorized-Sync.md): deployed connection flow, verified Yahoo application-access blocker, and prerequisites for removing the Mac app.
