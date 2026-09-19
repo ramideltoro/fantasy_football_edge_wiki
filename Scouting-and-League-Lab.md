@@ -4,14 +4,14 @@ Released September 19, 2026 (UTC). The feature set builds on the existing amber 
 
 ## Navigation
 
-- **Overview:** three shortcuts to workload, matchups and trades.
+- **Overview:** roster health, the weekly matchup and commentary only. Scouting tools are reached through the grouped section menus.
 - **Waivers → Breakout radar:** owned, available and imported-league filters; targets, carries, target share, air-yard share, offensive snap share, inside-20 targets, inside-5 carries, workload change, opportunity points and actual points.
 - **Waivers → Claim coach:** next-week lineup benefit for each legal bench replacement, opposing roster demand and higher-priority competitors. This league uses continual rolling waiver priority, so the tool does not invent FAAB dollar bids.
 - **My Team → Matchup radar:** three upcoming opponents and opponent-adjusted positional scoring context, alongside ESPN venue/weather information. Indoor venue metadata does not establish that a retractable roof is closed. Missing wind/forecast information remains unknown; weather does not automatically change projections.
-- **My Team → Lineup & decisions:** pin a preferred starter or exclude a player, with the existing Yahoo/Qwen/Bookies/combined and risk controls. Impossible combinations return no complete lineup. Game locks remain authoritative.
+- **My Team → Set lineup:** pin a preferred starter or exclude a player, with the existing Yahoo/Qwen/Bookies/combined and risk controls. Impossible combinations return no complete lineup. Game locks remain authoritative.
 - **League → Trade finder:** automated one-for-one candidates that improve both projected starting lineups; manual trades of up to three players per side, including two-for-one. Selecting a proposal fills the editor. Player comparison opens the shared dossier modal.
 - **League → Playoff race:** current-week optimized totals, next-week baselines and experimental regular-season qualification scenarios using the actual remaining schedule, including this league's extra median result.
-- **Draft Room:** free ADP, market bands, observed draft-position availability, notes, mark-taken/undo/reset controls and player dossiers. This is a session-local practice board, not an automated live draft assistant. It does not submit picks or provide auction/keeper valuations.
+- **Research → Preseason → Draft Room:** free ADP, market bands, observed draft-position availability, notes, mark-taken/undo/reset controls and player dossiers. This is a session-local practice board, not an automated live draft assistant. It does not submit picks or provide auction/keeper valuations.
 
 ## Free sources and collection
 

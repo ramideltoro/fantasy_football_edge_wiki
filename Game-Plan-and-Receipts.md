@@ -1,16 +1,16 @@
 # Game plan, kickoff watch and receipts
 
-The September 18, 2026 release adds eight connected features. Overview surfaces the next relevant actions; detailed controls live on My Team, Waivers and Research. Tabs have shareable URL fragments and support browser Back/Forward. The amber palette, Apple system typography, player dossiers and sortable tables remain consistent.
+The September 18, 2026 release adds eight connected features. After the September 19 navigation cleanup, Overview shows only roster health, the weekly matchup and commentary; detailed controls live on My Team, Waivers and Research. Tabs have shareable URL fragments and support browser Back/Forward. The amber palette, Apple system typography, player dossiers and sortable tables remain consistent.
 
 ## Where to find each feature
 
 | Feature | Location | What it does |
 | --- | --- | --- |
-| Kickoff availability alerts | My Team → Kickoff watch; urgent cards on Overview | Highlights flagged starters, eligible healthy direct bench replacements, source times and lock countdowns. |
-| Projection report card | Research → Report card | Grades saved Yahoo, Qwen and combined full forecasts against final fantasy scores, with position filters, mean absolute error, bias and common-game comparisons. |
+| Kickoff availability alerts | My Team → Kickoff watch; health summary and a kickoff link on Overview | Highlights flagged starters, eligible healthy direct bench replacements, source times and lock countdowns. |
+| Projection report card | Research → Past results → Projection accuracy | Grades saved Yahoo, Qwen and combined full forecasts against final fantasy scores, with position filters, mean absolute error, bias and common-game comparisons. |
 | Three-week roster planner | My Team → Three-week plan | Shows opponent schedules, byes, unresolved injury/data flags, lineup gaps and eligible imported pickups. |
-| Since-last-visit feed | Overview; Research → What changed | Material health, depth-chart, projection, roster and waiver-pool changes with source and observation times. |
-| Risk preferences | My Team → Lineup & decisions | Choose most expected points, protect the lead or swing for the fences, alongside the four projection sources. |
+| Since-last-visit feed | Research → News & analysis → What changed | Material health, depth-chart, projection, roster and waiver-pool changes with source and observation times. |
+| Risk preferences | My Team → Set lineup | Choose most expected points, protect the lead or swing for the fences, alongside the four projection sources. |
 | Multi-week waiver impact | Waivers → Pickup impact | Choose an outgoing roster player and available incoming player; opens their comparison and shows before/after lineups, score changes and lost position depth. |
 | FLEX timing and injury contingency | My Team → Kickoff watch | Suggests later starters in flexible slots while keeping the same starters, plus earlier decision deadlines and later bench backups for questionable starters. |
 | Weekly recap | Research → Weekly recap | Roster MVP, largest miss against Yahoo, newly added player, source comparison and evidence-based start/sit receipts. Incomplete weeks are explicitly labeled. |
@@ -51,7 +51,7 @@ FLEX suggestions exchange slots only when eligibility works in both directions, 
 
 ## Changes and weekly recaps
 
-Changes require an observed baseline; first startup does not fabricate news. Projection moves need at least two points and 20% of the previous value. The feed also records verified role changes, availability flags, newly imported available players with Yahoo forecasts of at least eight points, and roster additions. Source time and detection time are separate. Up to 250 events are retained for 14 days. Last-visit and read markers are scoped to this browser and league/team identity; navigating between Overview and the full feed preserves the same visit baseline.
+Changes require an observed baseline; first startup does not fabricate news. Projection moves need at least two points and 20% of the previous value. The feed also records verified role changes, availability flags, newly imported available players with Yahoo forecasts of at least eight points, and roster additions. Source time and detection time are separate. Up to 250 events are retained for 14 days. Last-visit and read markers are scoped to this browser and league/team identity; navigating away from and back to the feed preserves the same visit baseline.
 
 Recaps use recorded roster history and completed scores. The MVP is the highest-scoring recorded roster member, including bench players. The pickup comparison needs a previous recorded week's roster. A weekly source winner needs at least three completed player-games shared by all three full sources. Start/sit receipts use the last recorded pregame Yahoo forecasts and eligible direct bench substitutes; they distinguish a pregame opportunity from a reasonable choice followed by a worse outcome. They do not retroactively claim that a better bench score proves the decision was bad. Full slot combinations and a manager's risk preferences can change the decision.
 

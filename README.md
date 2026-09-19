@@ -29,3 +29,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Yahoo authorized sync](Yahoo-Authorized-Sync.md): deployed connection flow, verified Yahoo application-access blocker, and prerequisites for removing the Mac app.
 
 - [Scouting and league lab](Scouting-and-League-Lab.md): workload and matchup radar, trade finder, claim coach, experimental playoff scenarios and draft board.
+
+- [Navigation and weekly overview](Navigation-and-Overview.md): the focused weekly summary and current map of grouped tools.

@@ -1,5 +1,11 @@
 # Release notes
 
+## 2026-09-19 — A focused overview and grouped navigation
+
+Overview now contains the health board, the weekly team-versus-opponent scorecard and commentary. My Team groups current lineup work and forward planning; Waivers groups player discovery and pickup tools; Research groups news/analysis, past results and preseason drafting. The scoring charts moved into a closed Roster disclosure, the shortlist moved to Waivers and full refresh controls moved to Operations. All existing bookmark URLs remain valid.
+
+The production build and 113 tests pass. Desktop and 390 px browser checks verified the regrouped navigation, moved disclosures, health popup, actual chart labels and four lineup projection choices. See [Navigation and Overview](Navigation-and-Overview.md) for the current tool map and release boundaries.
+
 ## 2026-09-18 — Eight connected game-plan tools
 
 Added kickoff availability alerts and opt-in open-page browser notifications; a persistent pregame forecast report card; three-week roster planning; material changes since the last visit; protect/chase risk preferences; multi-week waiver impact; FLEX timing and late-injury contingencies; and weekly decision/outcome recaps. Overview links directly to relevant actions. Detailed tools are grouped under My Team, Waivers and Research, with shareable tab URLs, player popups and sortable tables.
