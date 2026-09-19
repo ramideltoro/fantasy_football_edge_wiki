@@ -76,3 +76,13 @@ Added the Bookies projected column to roster and waivers, with the same data in 
 - My Team's lineup recommendations have Yahoo-only, Qwen-only, bookies-only and combined toggles, with per-player inputs and explicit source coverage. The combined method completes partial sportsbook markets using uncovered league-scored historical components before averaging; bookies-only keeps partial-total labels.
 - Tied lineups prefer fewer moves and do not recommend equivalent zero-gain FLEX shuffles.
 - 77 tests and the production build pass. Desktop/mobile browser checks covered the four modes, pagination, percentage popup and sorting. See [the source and calculation contract](Lineup-Modes-and-Table-Sorting.md).
+
+## September 19, 2026 — Scouting and league lab
+
+Deployed workload/red-zone radar, three-week matchup/weather context, manual multi-player trades plus bounded automatic partner suggestions, rolling-priority claim guidance, league power totals, experimental playoff scenarios, an ADP practice board and source-specific lineup pins/exclusions. Overview provides direct entry points; the tools reuse sortable tables and player dossiers. See [Scouting and league lab](Scouting-and-League-Lab.md) for the complete source/calculation contract and limitations.
+
+The read-only scouting import successfully captured all 12 rosters and schedules. Live `/api/edge-lab` returned 323 players, eight proposed one-for-one deals, 263 players with covered red-zone observations, 1,000 simulations with results for all 12 teams, and zero failed sources. The median-result rule and six-team Week-15 playoff setting were verified from Yahoo. Twenty-eight unfilled future starting slots were explicitly represented in the no-pickup scenario. A rolling historical baseline evaluation covered 4,990 held-out games. These tests do not establish calibrated playoff odds.
+
+Validation: 113 automated tests passed locally and in the production Node 24 image; TypeScript/Vite production build succeeded. Browser checks covered table sorting, player/compare modals, trade selection, claim selection, lineup pins, draft undo and 390px mobile containment. Health and public scouting APIs returned HTTP 200. Public scouting responses exclude raw Yahoo sections and manager/authentication fields.
+
+The positional matchup cache reduced a local full-dataset calculation from approximately 28 seconds to 11 seconds without changing the method. Source/database/image backups and container build/test logs are under `/var/backups/fantasy-football-edge/scouting-20260919/`. The existing Yahoo authorization migration and VegasInsider six-hour collector remain in place. No paid source subscription was added.

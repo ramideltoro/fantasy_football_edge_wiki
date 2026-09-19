@@ -27,3 +27,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Game plan, kickoff watch and receipts](Game-Plan-and-Receipts.md): eight connected tools for availability, risk, FLEX timing, three-week planning, waiver impact and honest forecast/decision evaluation.
 
 - [Yahoo authorized sync](Yahoo-Authorized-Sync.md): deployed connection flow, verified Yahoo application-access blocker, and prerequisites for removing the Mac app.
+
+- [Scouting and league lab](Scouting-and-League-Lab.md): workload and matchup radar, trade finder, claim coach, experimental playoff scenarios and draft board.

@@ -98,3 +98,11 @@ The fantasy worker now uses a dedicated **fantasy-qwen.service** on the local AI
 The private Mac `config.json` sets `ollamaPort: 11435`; `importer/ai.ts` validates this integer and retains 11434 as the default for other installations. The existing SSH transport, bearer authorization, model name, context/output limits and API result contract remain unchanged. Private pre-change config/worker backups are retained in the FantasyFootballEdge support directory. The worker LaunchAgent was resumed after deployment; superseded inputs were retired and timed-out current jobs were requeued. Rejected outputs were never published.
 
 For rollback, restore the Mac worker/config backups and disable the dedicated fantasy unit after confirming no fantasy inference is active. Do not remove the shared model directory or change the other applications' endpoint. For diagnostics, check `systemctl status fantasy-qwen`, the private runtime's `/api/ps`, and a bounded real inference request; list/health endpoints alone are insufficient.
+
+### Scouting and league lab
+
+`GET /api/edge-lab` serves persistent, sanitized scouting state. A minute worker recomputes on a changed snapshot or after 30 minutes; external statistical sources have six-hour caches, ESPN weather one hour, and ADP one day. Matchup residuals are cached by position/source context and computation yields between player/trade evaluations. Last successful state survives worker failures and container restarts. See [Scouting and league lab](Scouting-and-League-Lab.md).
+
+The Mac's extra league roster/schedule reads are cached for six hours and keep existing Yahoo pacing/cooldowns. The installed importer script was updated and a complete 35-page import verified. Official API scouting is optional so unavailable resources do not invalidate an otherwise complete core snapshot. Median-rule uncertainty withholds playoff scenarios.
+
+Rollback backup: `/var/backups/fantasy-football-edge/scouting-20260919/`. Restore its web source/image and recreate only the web service. The additive `edge_lab_state` table need not be dropped. The prior browser importer is also present in the source backup if the added scouting reads need to be reverted.
