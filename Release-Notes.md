@@ -1,5 +1,11 @@
 # Release notes
 
+## 2026-09-19 — The coach takes over the clubhouse
+
+Added a narrative-matched reaction GIF to the locker-room read, with seven game states, six attributed clips, pause/resume, remembered preference, reduced-motion stills and a resilient media fallback. Updated editorial copy throughout the existing sections and Qwen’s future commentary instructions to the same funny, dramatic, profane coach’s voice. Team briefing templates update immediately; cached model prose follows the normal refresh cycle. Calculations, sources, navigation and the grouped Overview remain intact.
+
+Deployed as application commit `7465011`. All 127 tests passed locally and against the built container. Production health, CSP, live reaction selection, desktop/mobile layout, all mobile routes, GIF pause/resume, reduced motion and media-failure behavior passed verification. See [Locker-room read](Locker-Room-Read.md) for the reaction rules, voice contract and media behavior. Rollback backup: `/var/backups/fantasy-football-edge/coach-personality-20260919/` (source, database and prior image reference).
+
 ## 2026-09-19 — The coach has the film
 
 Replaced the basic Overview commentary with a styled, profane and optimistic coaching assessment grounded in live matchup projections, scored points, original-to-live movement, completed opponent games and legal lineup options. The expandable scouting report covers both teams’ playmakers, recent form, availability and sortable game receipts. Fresh data updates the read through existing dashboard polling; phrasing rotates every 30 minutes. Missing history, thin samples and stale sources remain explicit. Final results switch to a postgame read.
