@@ -111,3 +111,7 @@ The positional matchup cache reduced a local full-dataset calculation from appro
 - Recover dashboard polling after stalled network requests.
 - Show DEF's next opponent and fantasy points/game allowed to opposing defenses, using league scoring and labeled season/game samples.
 - Validated with production build and 129 passing tests. See [Operations](Operations.md) for refresh behavior, dependencies and rollback.
+
+## September 23, 2026 — six-position waiver shortlist
+
+Each position now gets up to three eligible picks. DEF rankings use an explicit 50/50 blend of current-season defensive production and the next opponent's fantasy points allowed to defenses, with per-game evidence and sample-size warnings. Other positions use fresh Qwen or labeled Yahoo point forecasts. Historical Qwen priority scores cannot override the current shortlist. Missing DEF evidence is labeled and falls back without inventing a number. Build and 133 tests pass.
