@@ -104,3 +104,10 @@ The read-only scouting import successfully captured all 12 rosters and schedules
 Validation: 113 automated tests passed locally and in the production Node 24 image; TypeScript/Vite production build succeeded. Browser checks covered table sorting, player/compare modals, trade selection, claim selection, lineup pins, draft undo and 390px mobile containment. Health and public scouting APIs returned HTTP 200. Public scouting responses exclude raw Yahoo sections and manager/authentication fields.
 
 The positional matchup cache reduced a local full-dataset calculation from approximately 28 seconds to 11 seconds without changing the method. Source/database/image backups and container build/test logs are under `/var/backups/fantasy-football-edge/scouting-20260919/`. The existing Yahoo authorization migration and VegasInsider six-hour collector remain in place. No paid source subscription was added.
+
+## September 23, 2026 — independent refresh and DEF opponents
+
+- Refresh public research and queue forecasts every two hours using the last available roster, independently of Yahoo imports; retry failed research with backoff and preserve last-good data.
+- Recover dashboard polling after stalled network requests.
+- Show DEF's next opponent and fantasy points/game allowed to opposing defenses, using league scoring and labeled season/game samples.
+- Validated with production build and 129 passing tests. See [Operations](Operations.md) for refresh behavior, dependencies and rollback.
