@@ -33,3 +33,5 @@ This documentation describes the replacement implementation. Release notes disti
 - [Navigation and weekly overview](Navigation-and-Overview.md): the focused weekly summary and current map of grouped tools.
 
 - [The locker-room read](Locker-Room-Read.md): an evolving, evidence-backed coach’s assessment with opponent history and game receipts.
+
+- [Public viewing](Public-Viewing.md): no-login browsing, loading recovery and protected administration.

@@ -1,5 +1,9 @@
 # Release notes
 
+## 2026-10-05 — Public browsing without the misleading login wall
+
+Removed owner sign-in prompts from normal viewing and the League screen. Fixed the stalled dashboard/history requests that incorrectly fell through to an owner setup prompt. Historical reads now select compact fields and share in-flight work; older accuracy reports load independently of the current roster. Account connections and mutations remain protected in the Operations administration disclosure. The production build and 138 tests pass; see [Public viewing](Public-Viewing.md) for validation, data boundaries and rollback.
+
 ## 2026-09-19 — The coach takes over the clubhouse
 
 Added a narrative-matched reaction GIF to the locker-room read, with seven game states, six attributed clips, pause/resume, remembered preference, reduced-motion stills and a resilient media fallback. Updated editorial copy throughout the existing sections and Qwen’s future commentary instructions to the same funny, dramatic, profane coach’s voice. Team briefing templates update immediately; cached model prose follows the normal refresh cycle. Calculations, sources, navigation and the grouped Overview remain intact.
